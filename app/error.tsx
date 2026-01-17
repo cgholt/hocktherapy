@@ -1,0 +1,23 @@
+"use client";
+
+export default function Error({
+  reset,
+}: {
+  error: Error & { digest?: string };
+  reset: () => void;
+}) {
+  return (
+    <main className="flex min-h-[60vh] flex-col items-center justify-center px-6 py-24">
+      <h1 className="text-4xl font-bold tracking-tight">Something went wrong</h1>
+      <p className="mt-4 text-lg text-muted-foreground">
+        We encountered an error loading this page.
+      </p>
+      <button
+        onClick={reset}
+        className="mt-8 inline-flex items-center rounded-lg bg-primary px-6 py-3 text-primary-foreground font-medium hover:opacity-90 transition"
+      >
+        Try again
+      </button>
+    </main>
+  );
+}
