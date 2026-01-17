@@ -1,8 +1,10 @@
+local_backend: true
+
 backend:
   name: github
-  repo: cgholt/hocktherapy # Replace with your GitHub username/repo
+  repo: cgholt/hocktherapy
   branch: development
-  base_url: https://decap-oauth.netlify.app # Free OAuth proxy
+  base_url: https://decap-oauth.netlify.app
 
 media_folder: public/images
 public_folder: /images
