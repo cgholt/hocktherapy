@@ -1,0 +1,9 @@
+{
+  "name": "Therapy Practice",
+  "tagline": "Compassionate, evidence-based therapy to support your mental health journey.",
+  "nav": [
+    { "label": "Home", "href": "/" },
+    { "label": "Services", "href": "/services" },
+    { "label": "Contact", "href": "/contact" }
+  ]
+}

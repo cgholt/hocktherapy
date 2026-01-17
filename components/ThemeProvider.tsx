@@ -2,7 +2,7 @@
 
 import { createContext, useContext, useEffect, useState, useSyncExternalStore } from "react";
 
-type Theme = "light" | "dark";
+type Theme = "dark" | "light";
 
 type ThemeContextType = {
   theme: Theme;
@@ -20,19 +20,16 @@ export function useTheme() {
 }
 
 function getInitialTheme(): Theme {
-  if (typeof window === "undefined") return "light";
+  if (typeof window === "undefined") return "dark";
   const stored = localStorage.getItem("theme") as Theme | null;
   if (stored) return stored;
-  if (window.matchMedia("(prefers-color-scheme: dark)").matches) return "dark";
-  return "light";
+  // Default to dark
+  return "dark";
 }
 
 function subscribe(callback: () => void) {
-  const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
-  mediaQuery.addEventListener("change", callback);
   window.addEventListener("storage", callback);
   return () => {
-    mediaQuery.removeEventListener("change", callback);
     window.removeEventListener("storage", callback);
   };
 }
@@ -42,7 +39,7 @@ function getSnapshot(): Theme {
 }
 
 function getServerSnapshot(): Theme {
-  return "light";
+  return "dark";
 }
 
 export default function ThemeProvider({
@@ -55,16 +52,16 @@ export default function ThemeProvider({
 
   useEffect(() => {
     const root = document.documentElement;
-    if (theme === "dark") {
-      root.classList.add("dark");
+    if (theme === "light") {
+      root.classList.add("light");
     } else {
-      root.classList.remove("dark");
+      root.classList.remove("light");
     }
     localStorage.setItem("theme", theme);
   }, [theme]);
 
   const toggleTheme = () => {
-    setTheme((prev) => (prev === "light" ? "dark" : "light"));
+    setTheme((prev) => (prev === "dark" ? "light" : "dark"));
   };
 
   return (

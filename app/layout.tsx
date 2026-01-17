@@ -3,27 +3,29 @@ import "./globals.css";
 import Header from "components/Header";
 import Footer from "components/Footer";
 import ThemeProvider from "components/ThemeProvider";
-import { siteConfig } from "content/site";
+import { getSiteConfig } from "lib/content";
 
-// Script to prevent flash of wrong theme
+// Script to prevent flash of wrong theme (dark is default)
 const themeScript = `
   (function() {
     const theme = localStorage.getItem('theme');
-    if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-      document.documentElement.classList.add('dark');
+    if (theme === 'light') {
+      document.documentElement.classList.add('light');
     }
   })();
 `;
 
+const siteConfig = getSiteConfig();
+
 export const metadata: Metadata = {
   title: {
-    default: siteConfig.seo.title,
-    template: `%s | ${siteConfig.seo.title}`,
+    default: siteConfig.name,
+    template: `%s | ${siteConfig.name}`,
   },
-  description: siteConfig.seo.description,
+  description: siteConfig.tagline,
   openGraph: {
-    title: siteConfig.seo.title,
-    description: siteConfig.seo.description,
+    title: siteConfig.name,
+    description: siteConfig.tagline,
   },
 };
 
