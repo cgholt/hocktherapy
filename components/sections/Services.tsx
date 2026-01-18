@@ -3,6 +3,10 @@ import Link from "next/link";
 import { Service } from "lib/content";
 
 export default function Services({ items }: { items: Service[] }) {
+  if (items.length === 0) {
+    return null;
+  }
+
   return (
     <section className="bg-primary">
       <div className="mx-auto max-w-7xl px-6 py-16">
