@@ -73,6 +73,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={playfair.variable} suppressHydrationWarning>
       <head>
+        <GoogleAnalytics gaId="G-3F654PFG50" />
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
         {colorStyles && <style dangerouslySetInnerHTML={{ __html: colorStyles }} />}
         <LocalBusinessSchema
@@ -94,7 +95,6 @@ export default function RootLayout({
           <Footer />
         </ThemeProvider>
       </body>
-      <GoogleAnalytics gaId="G-3F654PFG50" />
     </html>
   );
 }
