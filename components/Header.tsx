@@ -7,12 +7,12 @@ export default function Header() {
 
   return (
     <header className="border-b border-border bg-primary">
-      <nav className="mx-auto max-w-7xl px-6 py-4 flex items-center justify-between">
-        <Link href="/" className="text-xl font-semibold text-primary-foreground font-[family-name:var(--font-playfair)]">
+      <nav className="mx-auto max-w-7xl px-6 py-4 flex flex-col items-center gap-3 md:flex-row md:justify-between md:gap-6">
+        <Link href="/" className="text-xl font-semibold text-primary-foreground font-[family-name:var(--font-playfair)] text-center md:text-left">
           {siteConfig.name}
         </Link>
-        <div className="flex items-center gap-6">
-          <ul className="flex items-center gap-6">
+        <div className="flex items-center gap-4 md:gap-6">
+          <ul className="flex items-center gap-4 md:gap-6">
             {siteConfig.nav.map((link) => (
               <li key={link.href}>
                 <Link
