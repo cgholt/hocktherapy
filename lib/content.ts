@@ -127,6 +127,7 @@ export function getLayout(): Layout {
 export function getServices(): Service[] {
   return cached("services", () => {
     const dir = path.join(contentDir, "services");
+    if (!fs.existsSync(dir)) return [];
     const files = fs.readdirSync(dir).filter((f) => f.endsWith(".json"));
 
     return files
@@ -148,6 +149,7 @@ export function getServiceBySlug(slug: string): Service | undefined {
 export function getTestimonials(): Testimonial[] {
   return cached("testimonials", () => {
     const dir = path.join(contentDir, "testimonials");
+    if (!fs.existsSync(dir)) return [];
     const files = fs.readdirSync(dir).filter((f) => f.endsWith(".json"));
 
     return files
@@ -159,6 +161,7 @@ export function getTestimonials(): Testimonial[] {
 export function getFAQs(): FAQ[] {
   return cached("faqs", () => {
     const dir = path.join(contentDir, "faqs");
+    if (!fs.existsSync(dir)) return [];
     const files = fs.readdirSync(dir).filter((f) => f.endsWith(".json"));
 
     return files
