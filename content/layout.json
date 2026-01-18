@@ -1,10 +1,34 @@
 {
   "sections": [
-    { "id": "hero", "label": "Hero", "enabled": true },
-    { "id": "about", "label": "About Me", "enabled": true },
-    { "id": "services", "label": "Services", "enabled": true },
-    { "id": "testimonials", "label": "Testimonials", "enabled": false },
-    { "id": "endorsements", "label": "Endorsements", "enabled": false },
-    { "id": "faq", "label": "FAQ", "enabled": true }
+    {
+      "id": "hero",
+      "label": "Hero",
+      "enabled": true
+    },
+    {
+      "id": "about",
+      "label": "About Me",
+      "enabled": true
+    },
+    {
+      "id": "services",
+      "label": "Services",
+      "enabled": false
+    },
+    {
+      "id": "testimonials",
+      "label": "Testimonials",
+      "enabled": false
+    },
+    {
+      "id": "endorsements",
+      "label": "Endorsements",
+      "enabled": false
+    },
+    {
+      "id": "faq",
+      "label": "FAQ",
+      "enabled": true
+    }
   ]
 }
