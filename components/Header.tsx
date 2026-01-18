@@ -8,7 +8,7 @@ export default function Header() {
   return (
     <header className="border-b border-border bg-primary">
       <nav className="mx-auto max-w-7xl px-6 py-4 flex items-center justify-between">
-        <Link href="/" className="text-xl font-semibold text-primary-foreground">
+        <Link href="/" className="text-xl font-semibold text-primary-foreground font-[family-name:var(--font-playfair)]">
           {siteConfig.name}
         </Link>
         <div className="flex items-center gap-6">
