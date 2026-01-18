@@ -93,6 +93,11 @@ export type PrivacyPolicy = {
   content: string;
 };
 
+export type ContactContent = {
+  safetyNoticeTitle: string;
+  safetyNoticeContent: string;
+};
+
 // Loaders
 export function getHomepage(): Homepage {
   return cached("homepage", () => {
@@ -211,5 +216,12 @@ export function getPrivacyPolicy(): PrivacyPolicy {
       ...content,
       content: marked.parse(content.content, { async: false }) as string,
     };
+  });
+}
+
+export function getContactContent(): ContactContent {
+  return cached("contact", () => {
+    const filePath = path.join(contentDir, "contact.json");
+    return JSON.parse(fs.readFileSync(filePath, "utf-8"));
   });
 }

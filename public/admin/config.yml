@@ -163,6 +163,16 @@ collections:
               - { name: label, label: Section Name, widget: string }
               - { name: enabled, label: Enabled, widget: boolean, default: true }
 
+  - name: contact
+    label: Contact Page
+    files:
+      - name: contact-settings
+        label: Contact Settings
+        file: content/contact.json
+        fields:
+          - { name: safetyNoticeTitle, label: Safety Notice Title, widget: string }
+          - { name: safetyNoticeContent, label: Safety Notice Content, widget: text, hint: "This notice will be shown above the contact form. Users must acknowledge it before submitting." }
+
   - name: legal
     label: Legal Pages
     files:
