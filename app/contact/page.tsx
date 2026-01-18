@@ -1,18 +1,35 @@
 "use client";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 
 export default function ContactPage() {
-  const [status, setStatus] = useState<"idle" | "ok" | "err">("idle");
+  const [status, setStatus] = useState<"idle" | "loading" | "ok" | "err">("idle");
+  const loadTimeRef = useRef(0);
+  const honeypotRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    loadTimeRef.current = Date.now();
+    // Hide honeypot via JS (bots often don't execute JS, so they'll fill it)
+    if (honeypotRef.current) {
+      honeypotRef.current.className = "absolute -left-[9999px] h-0 opacity-0 overflow-hidden";
+    }
+  }, []);
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    setStatus("loading");
+
     const fd = new FormData(e.currentTarget);
-    const body = Object.fromEntries(fd.entries());
+    const body = {
+      ...Object.fromEntries(fd.entries()),
+      _timestamp: loadTimeRef.current,
+    };
+
     const res = await fetch("/api/contact", {
       method: "POST",
       body: JSON.stringify(body),
       headers: { "Content-Type": "application/json" },
     });
+
     setStatus(res.ok ? "ok" : "err");
   }
 
@@ -45,8 +62,23 @@ export default function ContactPage() {
             className="w-full rounded-lg border border-border bg-secondary px-4 py-3 text-secondary-foreground placeholder:text-tertiary focus:outline-none focus:ring-2 focus:ring-accent"
             required
           />
-          <button className="rounded-lg bg-accent px-6 py-3 text-accent-foreground font-medium hover:opacity-90 transition">
-            Send
+
+          {/* Honeypot field - hidden via JS, bots will fill this */}
+          <input
+            ref={honeypotRef}
+            name="_website"
+            type="text"
+            autoComplete="off"
+            aria-hidden="true"
+            tabIndex={-1}
+          />
+
+          <button
+            type="submit"
+            disabled={status === "loading"}
+            className="rounded-lg bg-accent px-6 py-3 text-accent-foreground font-medium hover:opacity-90 transition disabled:opacity-50"
+          >
+            {status === "loading" ? "Sending..." : "Send"}
           </button>
           {status === "ok" && (
             <p className="text-green-400">Thanks—I&apos;ll be in touch soon.</p>

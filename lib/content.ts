@@ -4,6 +4,18 @@ import { marked } from "marked";
 
 const contentDir = path.join(process.cwd(), "content");
 
+// Simple cache to avoid re-reading files during build/request
+const cache = new Map<string, unknown>();
+
+function cached<T>(key: string, loader: () => T): T {
+  if (cache.has(key)) {
+    return cache.get(key) as T;
+  }
+  const result = loader();
+  cache.set(key, result);
+  return result;
+}
+
 // Types
 export type Homepage = {
   heroTitle: string;
@@ -41,70 +53,163 @@ export type FAQ = {
   order: number;
 };
 
+export type Endorsement = {
+  name: string;
+  credentials: string;
+  quote: string;
+  order: number;
+};
+
+export type ColorPreset = {
+  name: string;
+  slug: string;
+  primary: string;
+  secondary: string;
+  accent: string;
+};
+
 export type SiteConfig = {
   name: string;
   tagline?: string;
   nav: { label: string; href: string }[];
+  backgroundImage?: string | null;
+  backgroundOverlay?: number;
+  activeColorPreset?: string;
+};
+
+export type Section = {
+  id: string;
+  label: string;
+  enabled: boolean;
+};
+
+export type Layout = {
+  sections: Section[];
+};
+
+export type PrivacyPolicy = {
+  title: string;
+  lastUpdated: string;
+  content: string;
 };
 
 // Loaders
 export function getHomepage(): Homepage {
-  const filePath = path.join(contentDir, "homepage.json");
-  const content = JSON.parse(fs.readFileSync(filePath, "utf-8"));
-  return {
-    ...content,
-    // Convert markdown to HTML for about content
-    aboutContent: marked.parse(content.aboutContent, { async: false }) as string,
-  };
+  return cached("homepage", () => {
+    const filePath = path.join(contentDir, "homepage.json");
+    const content = JSON.parse(fs.readFileSync(filePath, "utf-8"));
+    return {
+      ...content,
+      aboutContent: marked.parse(content.aboutContent, { async: false }) as string,
+    };
+  });
 }
 
 export function getSiteConfig(): SiteConfig {
-  const filePath = path.join(contentDir, "site.json");
-  return JSON.parse(fs.readFileSync(filePath, "utf-8"));
+  return cached("siteConfig", () => {
+    const filePath = path.join(contentDir, "site.json");
+    return JSON.parse(fs.readFileSync(filePath, "utf-8"));
+  });
+}
+
+export function getLayout(): Layout {
+  return cached("layout", () => {
+    const filePath = path.join(contentDir, "layout.json");
+    return JSON.parse(fs.readFileSync(filePath, "utf-8"));
+  });
 }
 
 export function getServices(): Service[] {
-  const dir = path.join(contentDir, "services");
-  const files = fs.readdirSync(dir).filter((f) => f.endsWith(".json"));
+  return cached("services", () => {
+    const dir = path.join(contentDir, "services");
+    const files = fs.readdirSync(dir).filter((f) => f.endsWith(".json"));
 
-  return files
-    .map((file) => {
-      const content = JSON.parse(fs.readFileSync(path.join(dir, file), "utf-8"));
-      return {
-        ...content,
-        // Convert markdown to HTML
-        content: marked.parse(content.content || "", { async: false }) as string,
-      };
-    })
-    .sort((a, b) => a.order - b.order);
+    return files
+      .map((file) => {
+        const content = JSON.parse(fs.readFileSync(path.join(dir, file), "utf-8"));
+        return {
+          ...content,
+          content: marked.parse(content.content || "", { async: false }) as string,
+        };
+      })
+      .sort((a, b) => a.order - b.order);
+  });
 }
 
 export function getServiceBySlug(slug: string): Service | undefined {
-  const services = getServices();
-  return services.find((s) => s.slug === slug);
+  return getServices().find((s) => s.slug === slug);
 }
 
 export function getTestimonials(): Testimonial[] {
-  const dir = path.join(contentDir, "testimonials");
-  const files = fs.readdirSync(dir).filter((f) => f.endsWith(".json"));
+  return cached("testimonials", () => {
+    const dir = path.join(contentDir, "testimonials");
+    const files = fs.readdirSync(dir).filter((f) => f.endsWith(".json"));
 
-  return files
-    .map((file) => JSON.parse(fs.readFileSync(path.join(dir, file), "utf-8")))
-    .sort((a, b) => a.order - b.order);
+    return files
+      .map((file) => JSON.parse(fs.readFileSync(path.join(dir, file), "utf-8")))
+      .sort((a, b) => a.order - b.order);
+  });
 }
 
 export function getFAQs(): FAQ[] {
-  const dir = path.join(contentDir, "faqs");
-  const files = fs.readdirSync(dir).filter((f) => f.endsWith(".json"));
+  return cached("faqs", () => {
+    const dir = path.join(contentDir, "faqs");
+    const files = fs.readdirSync(dir).filter((f) => f.endsWith(".json"));
 
-  return files
-    .map((file) => {
+    return files
+      .map((file) => {
+        const content = JSON.parse(fs.readFileSync(path.join(dir, file), "utf-8"));
+        return {
+          ...content,
+          answer: marked.parse(content.answer, { async: false }) as string,
+        };
+      })
+      .sort((a, b) => a.order - b.order);
+  });
+}
+
+export function getEndorsements(): Endorsement[] {
+  return cached("endorsements", () => {
+    const dir = path.join(contentDir, "endorsements");
+    if (!fs.existsSync(dir)) return [];
+    const files = fs.readdirSync(dir).filter((f) => f.endsWith(".json"));
+
+    return files
+      .map((file) => JSON.parse(fs.readFileSync(path.join(dir, file), "utf-8")))
+      .sort((a, b) => a.order - b.order);
+  });
+}
+
+export function getColorPresets(): ColorPreset[] {
+  return cached("colorPresets", () => {
+    const dir = path.join(contentDir, "color-presets");
+    if (!fs.existsSync(dir)) return [];
+    const files = fs.readdirSync(dir).filter((f) => f.endsWith(".json"));
+
+    return files.map((file) => {
       const content = JSON.parse(fs.readFileSync(path.join(dir, file), "utf-8"));
       return {
         ...content,
-        // Convert markdown to HTML
-        answer: marked.parse(content.answer, { async: false }) as string,
+        slug: file.replace(".json", ""),
       };
-    })
-    .sort((a, b) => a.order - b.order);
+    });
+  });
+}
+
+export function getActiveColorPreset(): ColorPreset | null {
+  const siteConfig = getSiteConfig();
+  const presets = getColorPresets();
+  const activeSlug = siteConfig.activeColorPreset || "default";
+  return presets.find((p) => p.slug === activeSlug) || presets[0] || null;
+}
+
+export function getPrivacyPolicy(): PrivacyPolicy {
+  return cached("privacy", () => {
+    const filePath = path.join(contentDir, "privacy.json");
+    const content = JSON.parse(fs.readFileSync(filePath, "utf-8"));
+    return {
+      ...content,
+      content: marked.parse(content.content, { async: false }) as string,
+    };
+  });
 }

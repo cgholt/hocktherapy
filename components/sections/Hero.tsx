@@ -15,7 +15,13 @@ export default function Hero({
   image?: string | null;
 }) {
   return (
-    <section className="relative overflow-hidden bg-primary">
+    <section
+      className="relative pb-16 md:pb-24"
+      style={{
+        clipPath: "polygon(0 0, 100% 0, 100% 100%, 50% calc(100% - 8rem), 0 100%)",
+        backgroundColor: "rgba(24, 22, 25, 0.75)",
+      }}
+    >
       <div className="mx-auto max-w-7xl px-6 py-20 grid md:grid-cols-2 gap-10 items-center">
         <div>
           <h1 className="text-4xl/tight md:text-5xl font-extrabold tracking-tight text-primary-foreground">
@@ -41,6 +47,7 @@ export default function Hero({
               src={image}
               alt="Hero"
               fill
+              sizes="(max-width: 768px) 100vw, 50vw"
               className="object-cover"
               priority
             />

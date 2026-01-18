@@ -21,6 +21,8 @@ export default function Services({ items }: { items: Service[] }) {
                     src={s.image}
                     alt={s.title}
                     fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    loading="lazy"
                     className="object-cover group-hover:scale-105 transition"
                   />
                 </div>

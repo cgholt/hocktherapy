@@ -15,9 +15,9 @@ export default function Testimonials({
         </h2>
         <div className="mt-1 h-1 w-16 bg-accent rounded" />
         <div className="mt-8 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {items.map((t) => (
+          {items.map((t, index) => (
             <figure
-              key={t.name}
+              key={`${t.name}-${index}`}
               className="rounded-xl border border-border bg-primary p-5"
             >
               <div className="flex items-center gap-3">

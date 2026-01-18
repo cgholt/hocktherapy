@@ -1,5 +1,3 @@
-local_backend: true
-
 backend:
   name: github
   repo: cgholt/hocktherapy
@@ -83,6 +81,18 @@ collections:
       - { name: quote, label: Quote, widget: text }
       - { name: order, label: Display Order, widget: number, default: 0 }
 
+  - name: endorsements
+    label: Endorsements
+    folder: content/endorsements
+    create: true
+    slug: "{{slug}}"
+    identifier_field: name
+    fields:
+      - { name: name, label: Name, widget: string }
+      - { name: credentials, label: Credentials, widget: string }
+      - { name: quote, label: Quote, widget: text }
+      - { name: order, label: Display Order, widget: number, default: 0 }
+
   - name: faqs
     label: FAQs
     folder: content/faqs
@@ -93,6 +103,20 @@ collections:
       - { name: question, label: Question, widget: string }
       - { name: answer, label: Answer, widget: markdown }
       - { name: order, label: Display Order, widget: number, default: 0 }
+
+  - name: color-presets
+    label: Color Presets
+    folder: content/color-presets
+    create: true
+    slug: "{{slug}}"
+    extension: json
+    format: json
+    identifier_field: name
+    fields:
+      - { name: name, label: Preset Name, widget: string }
+      - { name: primary, label: Primary Color, widget: color, default: "#181619", hint: "Main background color (dark)" }
+      - { name: secondary, label: Secondary Color, widget: color, default: "#272a31", hint: "Secondary background color (slightly lighter)" }
+      - { name: accent, label: Accent Color, widget: color, default: "#a76b09", hint: "Accent color for buttons and highlights" }
 
   - name: site
     label: Site Settings
@@ -109,3 +133,42 @@ collections:
             fields:
               - { name: label, label: Label, widget: string }
               - { name: href, label: URL, widget: string }
+          - { name: backgroundImage, label: Background Image, widget: image, required: false, hint: "Large image displayed behind the entire site" }
+          - { name: backgroundOverlay, label: Background Overlay, widget: number, default: 50, min: 0, max: 100, hint: "Darkness of overlay on background image (0 = none, 100 = fully dark)" }
+          - name: activeColorPreset
+            label: Active Color Preset
+            widget: relation
+            collection: color-presets
+            search_fields: [name]
+            value_field: "{{slug}}"
+            display_fields: [name]
+            default: default
+            hint: "Select a color scheme preset for the site"
+
+  - name: layout
+    label: Page Layout
+    files:
+      - name: homepage-layout
+        label: Homepage Section Order
+        file: content/layout.json
+        fields:
+          - name: sections
+            label: Sections
+            label_singular: Section
+            widget: list
+            summary: "{{fields.label}} ({{fields.id}})"
+            fields:
+              - { name: id, label: Section ID, widget: hidden }
+              - { name: label, label: Section Name, widget: string }
+              - { name: enabled, label: Enabled, widget: boolean, default: true }
+
+  - name: legal
+    label: Legal Pages
+    files:
+      - name: privacy
+        label: Privacy Policy
+        file: content/privacy.json
+        fields:
+          - { name: title, label: Page Title, widget: string }
+          - { name: lastUpdated, label: Last Updated, widget: datetime, date_format: "YYYY-MM-DD", time_format: false }
+          - { name: content, label: Content, widget: markdown }
