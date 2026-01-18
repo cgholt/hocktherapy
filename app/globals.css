@@ -1,42 +1,42 @@
 @import "tailwindcss";
 
 :root {
-  /* 60% - Primary (off-black with warm undertone) */
-  --primary: #2a2b2a;
-  --primary-foreground: #9aa0a8;
+  /* 60% - Primary (near black) */
+  --primary: #181619;
+  --primary-foreground: #ffffff;
 
-  /* 30% - Secondary (dark bronze) */
-  --secondary: #e9724c;
-  --secondary-foreground: #fef3c7;
+  /* 30% - Secondary (dark slate) */
+  --secondary: #272a31;
+  --secondary-foreground: #ffffff;
 
-  /* 10% - Accent (bright bronze/gold) + Tertiary (warm stone) */
-  --accent: #ffc759;
-  --accent-foreground: #0c0a09;
-  --tertiary: #a8a29e;
-  --tertiary-foreground: #0c0a09;
+  /* 10% - Accent (golden amber) */
+  --accent: #a76b09;
+  --accent-foreground: #ffffff;
+  --tertiary: #faf7f6;
+  --tertiary-foreground: #ffffff;
 
   /* Base theme - dark by default */
-  --background: #0c0a09;
-  --foreground: #fafaf9;
-  --muted: #1c1917;
-  --muted-foreground: #a8a29e;
-  --border: #44403c;
+  --background: #181619;
+  --foreground: #ffffff;
+  --muted: #272a31;
+  --muted-foreground: #d0d0d0;
+  --border: #3a3d45;
 }
 
 .light {
-  --primary: #44403c;
-  --primary-foreground: #fafaf9;
-  --secondary: #d97706;
-  --secondary-foreground: #1c1917;
-  --accent: #92400e;
-  --accent-foreground: #fafaf9;
-  --tertiary: #292524;
-  --tertiary-foreground: #fafaf9;
-  --background: #fafaf9;
-  --foreground: #1c1917;
-  --muted: #f5f5f4;
-  --muted-foreground: #57534e;
-  --border: #d6d3d1;
+  --primary: #181619;
+  --primary-foreground: #f5f5f5;
+  --secondary: #272a31;
+  --secondary-foreground: #f5f5f5;
+  --accent: #a76b09;
+  --accent-foreground: #ffffff;
+  --tertiary: #e5e5e5;
+  --tertiary-foreground: #181619;
+  --background: #f5f5f5;
+  --foreground: #181619;
+  --muted: #e8e8e8;
+  --muted-foreground: #555555;
+  --border: #d0d0d0;
 }
 
 @theme inline {
@@ -61,4 +61,10 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-playfair), serif;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }

@@ -3,12 +3,16 @@ export default function SectionDivider({
   to,
   variant = 1,
 }: {
-  from: "primary" | "secondary";
-  to: "primary" | "secondary";
+  from: "primary" | "secondary" | "transparent";
+  to: "primary" | "secondary" | "transparent";
   variant?: 1 | 2 | 3 | 4;
 }) {
-  const fromColor = from === "primary" ? "var(--primary)" : "var(--secondary)";
-  const toColor = to === "primary" ? "var(--primary)" : "var(--secondary)";
+  const getColor = (value: "primary" | "secondary" | "transparent") => {
+    if (value === "transparent") return "transparent";
+    return value === "primary" ? "var(--primary)" : "var(--secondary)";
+  };
+  const fromColor = getColor(from);
+  const toColor = getColor(to);
 
   // Different asymmetrical shapes for variety
   const shapes: Record<number, string> = {
