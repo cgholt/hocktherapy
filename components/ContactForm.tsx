@@ -1,6 +1,6 @@
 "use client";
 import { useState, useRef, useEffect } from "react";
-import type { ContactContent } from "@/lib/content";
+import type { ContactContent } from "lib/content";
 
 type ContactFormProps = {
   contactContent: ContactContent;
