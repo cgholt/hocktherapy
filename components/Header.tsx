@@ -15,7 +15,7 @@ export default function Header() {
             <li key={link.href}>
               <Link
                 href={link.href}
-                className="text-sm font-medium text-tertiary hover:text-accent transition"
+                className="nav-link text-sm font-medium text-tertiary hover:text-accent transition"
               >
                 {link.label}
               </Link>
