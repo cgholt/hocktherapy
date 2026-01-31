@@ -1,5 +1,5 @@
 ---
-question: Where and when do we meet?
+question: "Where and when do we meet? "
 answer: >-
   I offer video sessions via a secure telehealth platform to residents of Texas.
 
