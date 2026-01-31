@@ -1,5 +1,5 @@
 ---
-title: Existential Psychotherapy
+title: "Existential Psychotherapy "
 slug: existential-psychotherapy
 summary: '"What I am, this I become through my decisions." -Karl Jaspers'
 content: >-
