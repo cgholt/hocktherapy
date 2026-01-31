@@ -13,7 +13,7 @@
     {
       "id": "services",
       "label": "Services",
-      "enabled": false
+      "enabled": true
     },
     {
       "id": "testimonials",
