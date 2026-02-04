@@ -1,8 +1,8 @@
 ---
 title: Therapy for Men
 slug: therapy-for-men
-summary: For the strength of the Pack is the Wolf, and the strength of the Wolf
-  is the Pack. -Rudyard Kipling
+summary: '"For the strength of the Pack is the Wolf, and the strength of the
+  Wolf is the Pack." -Rudyard Kipling'
 content: >-
   
 
