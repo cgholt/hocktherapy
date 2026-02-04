@@ -173,6 +173,27 @@ collections:
           - { name: safetyNoticeTitle, label: Safety Notice Title, widget: string }
           - { name: safetyNoticeContent, label: Safety Notice Content, widget: text, hint: "This notice will be shown above the contact form. Users must acknowledge it before submitting." }
 
+  - name: about
+    label: About Page
+    files:
+      - name: about-content
+        label: About Me
+        file: content/about.json
+        fields:
+          - { name: title, label: Page Title, widget: string }
+          - { name: image, label: Headshot, widget: image, required: false, hint: "Optional profile photo displayed at the top of the page" }
+          - { name: content, label: Content, widget: markdown }
+
+  - name: faqs-page
+    label: FAQs Page
+    files:
+      - name: faqs-page-settings
+        label: FAQs Page Settings
+        file: content/faqs-page.json
+        fields:
+          - { name: title, label: Page Title, widget: string }
+          - { name: description, label: Page Description, widget: text, required: false, hint: "Optional introductory text shown below the title" }
+
   - name: legal
     label: Legal Pages
     files:

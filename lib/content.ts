@@ -99,6 +99,17 @@ export type ContactContent = {
   safetyNoticeContent: string;
 };
 
+export type AboutPage = {
+  title: string;
+  content: string;
+  image?: string | null;
+};
+
+export type FAQsPage = {
+  title: string;
+  description: string;
+};
+
 // Loaders
 export function getHomepage(): Homepage {
   return cached("homepage", () => {
@@ -264,6 +275,24 @@ export function getPrivacyPolicy(): PrivacyPolicy {
 export function getContactContent(): ContactContent {
   return cached("contact", () => {
     const filePath = path.join(contentDir, "contact.json");
+    return JSON.parse(fs.readFileSync(filePath, "utf-8"));
+  });
+}
+
+export function getAboutPage(): AboutPage {
+  return cached("about", () => {
+    const filePath = path.join(contentDir, "about.json");
+    const content = JSON.parse(fs.readFileSync(filePath, "utf-8"));
+    return {
+      ...content,
+      content: marked.parse(content.content, { async: false }) as string,
+    };
+  });
+}
+
+export function getFAQsPage(): FAQsPage {
+  return cached("faqsPage", () => {
+    const filePath = path.join(contentDir, "faqs-page.json");
     return JSON.parse(fs.readFileSync(filePath, "utf-8"));
   });
 }
