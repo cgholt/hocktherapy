@@ -1,6 +1,7 @@
 import fs from "fs";
 import path from "path";
 import { marked } from "marked";
+import matter from "gray-matter";
 
 const contentDir = path.join(process.cwd(), "content");
 
@@ -128,15 +129,16 @@ export function getServices(): Service[] {
   return cached("services", () => {
     const dir = path.join(contentDir, "services");
     if (!fs.existsSync(dir)) return [];
-    const files = fs.readdirSync(dir).filter((f) => f.endsWith(".json"));
+    const files = fs.readdirSync(dir).filter((f) => f.endsWith(".md"));
 
     return files
       .map((file) => {
-        const content = JSON.parse(fs.readFileSync(path.join(dir, file), "utf-8"));
+        const raw = fs.readFileSync(path.join(dir, file), "utf-8");
+        const { data } = matter(raw);
         return {
-          ...content,
-          content: marked.parse(content.content || "", { async: false }) as string,
-        };
+          ...data,
+          content: marked.parse(data.content || "", { async: false }) as string,
+        } as Service;
       })
       .sort((a, b) => a.order - b.order);
   });
