@@ -16,6 +16,6 @@ content: >-
 
 
   My role is to help you take an active stance toward your life again. This means learning to tolerate and trust your emotional experience, taking responsibility for your choices, and acting in ways that feel genuine and meaningful to you. Existential therapy is not about fixing you or giving advice, but about helping you reconnect with yourself and the world in a way that feels real. From that place, relief often follows not because life becomes easy, but because it becomes yours again.
-image: /images/albion-rose.jpg
+image: /images/29966395810_0f91a20929_o.webp
 order: 0
 ---
