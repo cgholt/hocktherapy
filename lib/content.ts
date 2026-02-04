@@ -152,10 +152,21 @@ export function getTestimonials(): Testimonial[] {
   return cached("testimonials", () => {
     const dir = path.join(contentDir, "testimonials");
     if (!fs.existsSync(dir)) return [];
-    const files = fs.readdirSync(dir).filter((f) => f.endsWith(".json"));
+    const files = fs.readdirSync(dir).filter((f) => f.endsWith(".json") || f.endsWith(".md"));
 
     return files
-      .map((file) => JSON.parse(fs.readFileSync(path.join(dir, file), "utf-8")))
+      .map((file) => {
+        const filePath = path.join(dir, file);
+        if (file.endsWith(".md")) {
+          const { data } = matter(fs.readFileSync(filePath, "utf-8"));
+          return {
+            name: data.name,
+            quote: data.quote,
+            order: data.order ?? 0,
+          };
+        }
+        return JSON.parse(fs.readFileSync(filePath, "utf-8"));
+      })
       .sort((a, b) => a.order - b.order);
   });
 }
@@ -164,14 +175,16 @@ export function getFAQs(): FAQ[] {
   return cached("faqs", () => {
     const dir = path.join(contentDir, "faqs");
     if (!fs.existsSync(dir)) return [];
-    const files = fs.readdirSync(dir).filter((f) => f.endsWith(".json"));
+    const files = fs.readdirSync(dir).filter((f) => f.endsWith(".md"));
 
     return files
       .map((file) => {
-        const content = JSON.parse(fs.readFileSync(path.join(dir, file), "utf-8"));
+        const raw = fs.readFileSync(path.join(dir, file), "utf-8");
+        const { data } = matter(raw);
         return {
-          ...content,
-          answer: marked.parse(content.answer, { async: false }) as string,
+          question: data.question,
+          answer: marked.parse(data.answer || "", { async: false }) as string,
+          order: data.order ?? 0,
         };
       })
       .sort((a, b) => a.order - b.order);
@@ -182,10 +195,22 @@ export function getEndorsements(): Endorsement[] {
   return cached("endorsements", () => {
     const dir = path.join(contentDir, "endorsements");
     if (!fs.existsSync(dir)) return [];
-    const files = fs.readdirSync(dir).filter((f) => f.endsWith(".json"));
+    const files = fs.readdirSync(dir).filter((f) => f.endsWith(".json") || f.endsWith(".md"));
 
     return files
-      .map((file) => JSON.parse(fs.readFileSync(path.join(dir, file), "utf-8")))
+      .map((file) => {
+        const filePath = path.join(dir, file);
+        if (file.endsWith(".md")) {
+          const { data } = matter(fs.readFileSync(filePath, "utf-8"));
+          return {
+            name: data.name,
+            credentials: data.credentials,
+            quote: data.quote,
+            order: data.order ?? 0,
+          };
+        }
+        return JSON.parse(fs.readFileSync(filePath, "utf-8"));
+      })
       .sort((a, b) => a.order - b.order);
   });
 }
@@ -194,13 +219,25 @@ export function getColorPresets(): ColorPreset[] {
   return cached("colorPresets", () => {
     const dir = path.join(contentDir, "color-presets");
     if (!fs.existsSync(dir)) return [];
-    const files = fs.readdirSync(dir).filter((f) => f.endsWith(".json"));
+    const files = fs.readdirSync(dir).filter((f) => f.endsWith(".json") || f.endsWith(".md"));
 
     return files.map((file) => {
-      const content = JSON.parse(fs.readFileSync(path.join(dir, file), "utf-8"));
+      const filePath = path.join(dir, file);
+      const slug = file.replace(/\.(json|md)$/, "");
+      if (file.endsWith(".md")) {
+        const { data } = matter(fs.readFileSync(filePath, "utf-8"));
+        return {
+          name: data.name,
+          primary: data.primary,
+          secondary: data.secondary,
+          accent: data.accent,
+          slug,
+        };
+      }
+      const content = JSON.parse(fs.readFileSync(filePath, "utf-8"));
       return {
         ...content,
-        slug: file.replace(".json", ""),
+        slug,
       };
     });
   });
