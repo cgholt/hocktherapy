@@ -134,6 +134,7 @@ collections:
             fields:
               - { name: label, label: Label, widget: string }
               - { name: href, label: URL, widget: string }
+              - { name: enabled, label: Show in Navbar, widget: boolean, default: true, hint: "When disabled, the page is still accessible via direct URL but won't appear in the navigation" }
           - { name: backgroundImage, label: Background Image, widget: image, required: false, hint: "Large image displayed behind the entire site" }
           - { name: backgroundOverlay, label: Background Overlay, widget: number, default: 50, min: 0, max: 100, hint: "Darkness of overlay on background image (0 = none, 100 = fully dark)" }
           - name: activeColorPreset

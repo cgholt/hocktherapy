@@ -72,7 +72,7 @@ export type ColorPreset = {
 export type SiteConfig = {
   name: string;
   tagline?: string;
-  nav: { label: string; href: string }[];
+  nav: { label: string; href: string; enabled?: boolean }[];
   backgroundImage?: string | null;
   backgroundOverlay?: number;
   activeColorPreset?: string;

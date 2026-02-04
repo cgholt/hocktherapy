@@ -4,23 +4,28 @@
   "nav": [
     {
       "label": "Home",
-      "href": "/"
+      "href": "/",
+      "enabled": true
     },
     {
       "label": "About",
-      "href": "/about"
+      "href": "/about",
+      "enabled": true
     },
     {
       "label": "Services",
-      "href": "/services"
+      "href": "/services",
+      "enabled": true
     },
     {
       "label": "FAQs",
-      "href": "/faqs"
+      "href": "/faqs",
+      "enabled": true
     },
     {
       "label": "Contact",
-      "href": "/contact"
+      "href": "/contact",
+      "enabled": true
     }
   ],
   "backgroundImage": "/images/36-image_riviere_henri_le_peintre_de_l_g.22392-36_2023182.webp",

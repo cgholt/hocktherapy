@@ -11,16 +11,18 @@ export default function Header() {
           {siteConfig.name}
         </Link>
         <ul className="flex items-center gap-4 md:gap-6">
-          {siteConfig.nav.map((link) => (
-            <li key={link.href}>
-              <Link
-                href={link.href}
-                className="nav-link text-sm font-medium text-tertiary hover:text-accent transition"
-              >
-                {link.label}
-              </Link>
-            </li>
-          ))}
+          {siteConfig.nav
+            .filter((link) => link.enabled !== false)
+            .map((link) => (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  className="nav-link text-sm font-medium text-tertiary hover:text-accent transition"
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
         </ul>
       </nav>
     </header>
