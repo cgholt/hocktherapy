@@ -28,7 +28,7 @@
     {
       "id": "faq",
       "label": "FAQ",
-      "enabled": false
+      "enabled": true
     }
   ]
 }
