@@ -17,7 +17,6 @@ const US_STATES = [
 export default function ContactForm({ contactContent }: ContactFormProps) {
   const [status, setStatus] = useState<"idle" | "loading" | "ok" | "err">("idle");
   const [acknowledged, setAcknowledged] = useState(false);
-  const [virtualConfirmed, setVirtualConfirmed] = useState(false);
   const loadTimeRef = useRef(0);
   const honeypotRef = useRef<HTMLInputElement>(null);
 
@@ -32,7 +31,7 @@ export default function ContactForm({ contactContent }: ContactFormProps) {
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
-    if (!acknowledged || !virtualConfirmed) {
+    if (!acknowledged) {
       return;
     }
 
@@ -109,20 +108,6 @@ export default function ContactForm({ contactContent }: ContactFormProps) {
         className={inputClass}
       />
 
-      {/* Virtual sessions confirmation */}
-      <label className="flex items-start gap-3 cursor-pointer">
-        <input
-          type="checkbox"
-          checked={virtualConfirmed}
-          onChange={(e) => setVirtualConfirmed(e.target.checked)}
-          className="mt-0.5 h-4 w-4 rounded border-border bg-secondary accent-accent cursor-pointer"
-          required
-        />
-        <span className="text-sm text-secondary-foreground">
-          I understand that no in-person sessions are available. All sessions are conducted virtually. *
-        </span>
-      </label>
-
       {/* Safety notice with acknowledgment */}
       <div className="rounded-lg border border-border bg-secondary/50 p-4">
         <h3 className="text-sm font-semibold text-primary-foreground">
@@ -156,7 +141,7 @@ export default function ContactForm({ contactContent }: ContactFormProps) {
 
       <button
         type="submit"
-        disabled={status === "loading" || !acknowledged || !virtualConfirmed}
+        disabled={status === "loading" || !acknowledged}
         className="rounded-lg bg-accent px-6 py-3 text-accent-foreground font-medium hover:opacity-90 transition disabled:opacity-50 disabled:cursor-not-allowed"
       >
         {status === "loading" ? "Sending..." : "Send"}
