@@ -78,13 +78,13 @@ export default function ContactForm({ contactContent }: ContactFormProps) {
         className={inputClass}
         required
       />
-      <input
-        name="phone"
-        type="tel"
-        placeholder="Phone number"
-        className={inputClass}
-      />
-      <div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <input
+          name="phone"
+          type="tel"
+          placeholder="Phone number"
+          className={inputClass}
+        />
         <select
           name="state"
           className={inputClass}
