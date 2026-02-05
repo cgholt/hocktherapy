@@ -18,6 +18,22 @@ function escapeHtml(text: string): string {
   return text.replace(/[&<>"']/g, (char) => map[char]);
 }
 
+// Sanitize string input - ensures value is a string and removes control characters
+function sanitizeString(value: unknown): string | null {
+  if (typeof value !== "string") return null;
+  // Remove control characters except newlines and tabs
+  return value.replace(/[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]/g, "").trim();
+}
+
+// Valid US state codes
+const VALID_STATES = new Set([
+  "AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA",
+  "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD",
+  "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ",
+  "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC",
+  "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY", "DC"
+]);
+
 function getClientIp(req: NextRequest): string {
   const forwarded = req.headers.get("x-forwarded-for");
   if (forwarded) {
@@ -82,20 +98,46 @@ export async function POST(req: NextRequest) {
     }
   }
 
-  // Basic validation
-  if (!body.name || !body.email || !body.message) {
+  // Sanitize and validate all inputs as strings
+  const firstName = sanitizeString(body.firstName);
+  const lastName = sanitizeString(body.lastName);
+  const email = sanitizeString(body.email);
+  const phone = sanitizeString(body.phone);
+  const state = sanitizeString(body.state);
+  const priorInfo = sanitizeString(body.priorInfo);
+  const referralSource = sanitizeString(body.referralSource);
+
+  // Basic validation - required fields
+  if (!firstName || !lastName || !email || !state) {
     return NextResponse.json({ error: "Missing fields" }, { status: 400 });
   }
 
   // Validate field lengths to prevent abuse
-  if (body.name.length > 200 || body.email.length > 200 || body.message.length > 10000) {
+  if (
+    firstName.length > 100 ||
+    lastName.length > 100 ||
+    email.length > 200 ||
+    (phone && phone.length > 30) ||
+    (priorInfo && priorInfo.length > 10000) ||
+    (referralSource && referralSource.length > 500)
+  ) {
     return NextResponse.json({ error: "Field too long" }, { status: 400 });
   }
 
-  // Basic email format validation
+  // Validate state is a real US state code
+  if (!VALID_STATES.has(state.toUpperCase())) {
+    return NextResponse.json({ error: "Invalid state" }, { status: 400 });
+  }
+
+  // Basic email format validation (also prevents header injection via newlines)
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!emailRegex.test(body.email)) {
+  if (!emailRegex.test(email) || email.includes("\n") || email.includes("\r")) {
     return NextResponse.json({ error: "Invalid email format" }, { status: 400 });
+  }
+
+  // Validate phone format if provided (digits, spaces, dashes, parentheses, plus only)
+  if (phone && !/^[\d\s\-().+]+$/.test(phone)) {
+    return NextResponse.json({ error: "Invalid phone format" }, { status: 400 });
   }
 
   const toEmail = process.env.CONTACT_EMAIL;
@@ -105,23 +147,31 @@ export async function POST(req: NextRequest) {
   }
 
   // Escape HTML to prevent injection in email clients
-  const safeName = escapeHtml(body.name);
-  const safeEmail = escapeHtml(body.email);
-  const safeMessage = escapeHtml(body.message);
+  const safeFirstName = escapeHtml(firstName);
+  const safeLastName = escapeHtml(lastName);
+  const safeEmail = escapeHtml(email);
+  const safePhone = phone ? escapeHtml(phone) : "";
+  const safeState = escapeHtml(state);
+  const safePriorInfo = priorInfo ? escapeHtml(priorInfo) : "";
+  const safeReferralSource = referralSource ? escapeHtml(referralSource) : "";
+
+  const fullName = `${safeFirstName} ${safeLastName}`;
 
   try {
     await transporter.sendMail({
       from: process.env.SMTP_USER,
       to: toEmail,
-      replyTo: body.email,
-      subject: `New contact from ${safeName}`,
-      text: `Name: ${body.name}\nEmail: ${body.email}\n\nMessage:\n${body.message}`,
+      replyTo: email,
+      subject: `New contact from ${fullName}`,
+      text: `Name: ${firstName} ${lastName}\nEmail: ${email}\nPhone: ${phone || "N/A"}\nState: ${state}\n\nPrior Info:\n${priorInfo || "N/A"}\n\nReferral Source: ${referralSource || "N/A"}`,
       html: `
         <h2>New Contact Form Submission</h2>
-        <p><strong>Name:</strong> ${safeName}</p>
+        <p><strong>Name:</strong> ${fullName}</p>
         <p><strong>Email:</strong> ${safeEmail}</p>
-        <h3>Message:</h3>
-        <p>${safeMessage.replace(/\n/g, "<br>")}</p>
+        ${safePhone ? `<p><strong>Phone:</strong> ${safePhone}</p>` : ""}
+        <p><strong>State:</strong> ${safeState}</p>
+        ${safePriorInfo ? `<h3>Prior Info:</h3><p>${safePriorInfo.replace(/\n/g, "<br>")}</p>` : ""}
+        ${safeReferralSource ? `<p><strong>How they heard about you:</strong> ${safeReferralSource}</p>` : ""}
       `,
     });
 

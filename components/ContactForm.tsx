@@ -6,9 +6,18 @@ type ContactFormProps = {
   contactContent: ContactContent;
 };
 
+const US_STATES = [
+  "AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA",
+  "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD",
+  "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ",
+  "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC",
+  "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY", "DC"
+];
+
 export default function ContactForm({ contactContent }: ContactFormProps) {
   const [status, setStatus] = useState<"idle" | "loading" | "ok" | "err">("idle");
   const [acknowledged, setAcknowledged] = useState(false);
+  const [virtualConfirmed, setVirtualConfirmed] = useState(false);
   const loadTimeRef = useRef(0);
   const honeypotRef = useRef<HTMLInputElement>(null);
 
@@ -23,7 +32,7 @@ export default function ContactForm({ contactContent }: ContactFormProps) {
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
-    if (!acknowledged) {
+    if (!acknowledged || !virtualConfirmed) {
       return;
     }
 
@@ -44,28 +53,75 @@ export default function ContactForm({ contactContent }: ContactFormProps) {
     setStatus(res.ok ? "ok" : "err");
   }
 
+  const inputClass = "w-full rounded-lg border border-border bg-secondary px-4 py-3 text-secondary-foreground placeholder:text-tertiary focus:outline-none focus:ring-2 focus:ring-accent";
+
   return (
     <form onSubmit={onSubmit} className="mt-8 space-y-4">
-      <input
-        name="name"
-        placeholder="Your name"
-        className="w-full rounded-lg border border-border bg-secondary px-4 py-3 text-secondary-foreground placeholder:text-tertiary focus:outline-none focus:ring-2 focus:ring-accent"
-        required
-      />
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <input
+          name="firstName"
+          placeholder="First name *"
+          className={inputClass}
+          required
+        />
+        <input
+          name="lastName"
+          placeholder="Last name *"
+          className={inputClass}
+          required
+        />
+      </div>
       <input
         name="email"
         type="email"
-        placeholder="Email"
-        className="w-full rounded-lg border border-border bg-secondary px-4 py-3 text-secondary-foreground placeholder:text-tertiary focus:outline-none focus:ring-2 focus:ring-accent"
+        placeholder="Email *"
+        className={inputClass}
         required
       />
+      <input
+        name="phone"
+        type="tel"
+        placeholder="Phone number"
+        className={inputClass}
+      />
+      <div>
+        <select
+          name="state"
+          className={inputClass}
+          required
+          defaultValue=""
+        >
+          <option value="" disabled>What state do you live in? *</option>
+          {US_STATES.map((state) => (
+            <option key={state} value={state}>{state}</option>
+          ))}
+        </select>
+      </div>
       <textarea
-        name="message"
-        placeholder="How can I help?"
-        rows={6}
-        className="w-full rounded-lg border border-border bg-secondary px-4 py-3 text-secondary-foreground placeholder:text-tertiary focus:outline-none focus:ring-2 focus:ring-accent"
-        required
+        name="priorInfo"
+        placeholder="Is there anything you'd like to share with me prior to our conversation?"
+        rows={4}
+        className={inputClass}
       />
+      <input
+        name="referralSource"
+        placeholder="How did you hear about me?"
+        className={inputClass}
+      />
+
+      {/* Virtual sessions confirmation */}
+      <label className="flex items-start gap-3 cursor-pointer">
+        <input
+          type="checkbox"
+          checked={virtualConfirmed}
+          onChange={(e) => setVirtualConfirmed(e.target.checked)}
+          className="mt-0.5 h-4 w-4 rounded border-border bg-secondary accent-accent cursor-pointer"
+          required
+        />
+        <span className="text-sm text-secondary-foreground">
+          I understand that no in-person sessions are available. All sessions are conducted virtually. *
+        </span>
+      </label>
 
       {/* Safety notice with acknowledgment */}
       <div className="rounded-lg border border-border bg-secondary/50 p-4">
@@ -83,7 +139,7 @@ export default function ContactForm({ contactContent }: ContactFormProps) {
             className="mt-0.5 h-4 w-4 rounded border-border bg-secondary accent-accent cursor-pointer"
           />
           <span className="text-sm text-secondary-foreground">
-            I acknowledge that I have read and understand this notice
+            I acknowledge that I have read and understand this notice *
           </span>
         </label>
       </div>
@@ -100,7 +156,7 @@ export default function ContactForm({ contactContent }: ContactFormProps) {
 
       <button
         type="submit"
-        disabled={status === "loading" || !acknowledged}
+        disabled={status === "loading" || !acknowledged || !virtualConfirmed}
         className="rounded-lg bg-accent px-6 py-3 text-accent-foreground font-medium hover:opacity-90 transition disabled:opacity-50 disabled:cursor-not-allowed"
       >
         {status === "loading" ? "Sending..." : "Send"}

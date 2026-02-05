@@ -40,6 +40,7 @@ export type Service = {
   price?: number;
   image?: string | null;
   order: number;
+  ctaText?: string;
 };
 
 export type Testimonial = {
@@ -72,6 +73,8 @@ export type ColorPreset = {
 export type SiteConfig = {
   name: string;
   tagline?: string;
+  email?: string;
+  phone?: string;
   nav: { label: string; href: string; enabled?: boolean }[];
   backgroundImage?: string | null;
   backgroundOverlay?: number;

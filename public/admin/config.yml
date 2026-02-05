@@ -70,6 +70,7 @@ collections:
         }
       - { name: price, label: Price, widget: number, required: false }
       - { name: order, label: Display Order, widget: number, default: 0 }
+      - { name: ctaText, label: Call to Action Text, widget: string, required: false, hint: "Button text at end of service page (e.g., 'Schedule a consultation with an existential psychotherapist')" }
 
   - name: testimonials
     label: Testimonials
@@ -128,6 +129,8 @@ collections:
         fields:
           - { name: name, label: Site Name, widget: string }
           - { name: tagline, label: Tagline, widget: string, required: false }
+          - { name: email, label: Email Address, widget: string, required: false, hint: "Displayed in header and footer" }
+          - { name: phone, label: Phone Number, widget: string, required: false, hint: "Displayed in header and footer" }
           - name: nav
             label: Navigation Links
             widget: list
