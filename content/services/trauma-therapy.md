@@ -1,7 +1,7 @@
 ---
 title: Trauma Therapy
 slug: trauma-therapy
-summary: '"The wound is the place where the light enters you." -Marcus Aurelius '
+summary: '"The wound is the place where the light enters you." -Rumi'
 content: >-
   
 
