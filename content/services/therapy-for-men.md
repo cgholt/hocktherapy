@@ -1,8 +1,8 @@
 ---
 title: Therapy for Men
 slug: therapy-for-men
-summary: For the strength of the Pack is the Wolf, and the strength of the Wolf
-  is the Pack. -Rudyard Kipling
+summary: '"For the strength of the Pack is the Wolf, and the strength of the
+  Wolf is the Pack." -Rudyard Kipling'
 content: >-
   
 
@@ -14,6 +14,6 @@ content: >-
 
 
   Men today are facing real and pressing issues, including rising loneliness, suicide risk, emotional disconnection, and the loss of meaningful male spaces. Many men experience anxiety through tension, restlessness, irritability, or overwork rather than through worry alone. Others struggle with identity shifts related to fatherhood, relationships, or changing cultural expectations. Therapy with a male therapist who understands these realities offers a place to speak honestly, reflect deeply, and reconnect with yourself and with other men in meaningful ways. This work is not about fixing what is broken, but about reclaiming what has been neglected and learning how to live with strength, depth, and purpose.
-image: /images/nov-21-prints-00006.webp
+image: /images/nov-21-prints-00006.jpg
 order: 0
 ---
