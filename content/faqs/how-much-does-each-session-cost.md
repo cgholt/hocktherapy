@@ -5,5 +5,5 @@ answer: >-
 
 
   This reflects my training, experience, and the kind of depth-oriented work I offer. I keep my practice intentionally small so I can show up fully present and prepared.
-order: 0
+order: 4
 ---
