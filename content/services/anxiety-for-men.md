@@ -1,6 +1,6 @@
 ---
-title: "Anxiety for Men "
-slug: anxiety-for-men
+title: "Anxiety Therapy for Men "
+slug: anxiety-therapy-for-men
 summary: Coming Soon.
 content: Under Construction.
 order: 0
