@@ -14,5 +14,5 @@ content: >-
 
   Trauma therapy offers a gradual and respectful path forward. I draw from established approaches such as Accelerated Resolution Therapy, Written Exposure Therapy, and Trauma Focused Cognitive Behavioral Therapy, while recognizing that meaningful work happens only when you are ready. There is no rush and no forcing of the nervous system. Progress often unfolds through careful pacing, choice, and gentle exposure to what was once too much to face alone. Over time, many people experience relief in their bodies, greater emotional range, and a renewed sense of agency in their lives. Like the tree, you already possess the capacity to heal. Therapy helps you direct your resources toward that work, at your own pace, in your own way.
 image: /images/sebastian-.jpg
-order: 0
+order: 3
 ---
