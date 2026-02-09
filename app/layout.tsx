@@ -7,6 +7,7 @@ import Footer from "components/Footer";
 import ThemeProvider from "components/ThemeProvider";
 import BackgroundImage from "components/BackgroundImage";
 import { LocalBusinessSchema } from "components/StructuredData";
+import NotificationBanner from "components/NotificationBanner";
 import { getSiteConfig, getActiveColorPreset } from "lib/content";
 
 const playfair = Playfair_Display({
@@ -90,6 +91,7 @@ export default function RootLayout({
           />
         )}
         <ThemeProvider>
+          <NotificationBanner />
           <Header />
           <div className="flex-1">{children}</div>
           <Footer />
