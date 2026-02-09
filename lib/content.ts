@@ -113,6 +113,15 @@ export type FAQsPage = {
   description: string;
 };
 
+export type Banner = {
+  enabled: boolean;
+  text: string;
+  linkText: string;
+  linkHref: string;
+  backgroundColor?: string;
+  textColor?: string;
+};
+
 // Loaders
 export function getHomepage(): Homepage {
   return cached("homepage", () => {
@@ -296,6 +305,13 @@ export function getAboutPage(): AboutPage {
 export function getFAQsPage(): FAQsPage {
   return cached("faqsPage", () => {
     const filePath = path.join(contentDir, "faqs-page.json");
+    return JSON.parse(fs.readFileSync(filePath, "utf-8"));
+  });
+}
+
+export function getBanner(): Banner {
+  return cached("banner", () => {
+    const filePath = path.join(contentDir, "banner.json");
     return JSON.parse(fs.readFileSync(filePath, "utf-8"));
   });
 }
