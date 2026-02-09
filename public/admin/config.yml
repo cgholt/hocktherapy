@@ -31,6 +31,15 @@ collections:
               widget: image,
               required: false,
             }
+          - {
+              name: heroImagePosition,
+              label: Hero Image Focal Point,
+              widget: select,
+              options: ["top", "center", "bottom"],
+              default: "center",
+              required: false,
+              hint: "Controls which part of the image stays visible when cropped",
+            }
           - { name: aboutTitle, label: About Title, widget: string }
           - { name: aboutContent, label: About Content, widget: markdown }
           - {

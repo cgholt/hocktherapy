@@ -42,6 +42,7 @@ export default function HomePage() {
         ctaText={homepage.heroCtaText}
         ctaHref={homepage.heroCtaHref}
         image={homepage.heroImage}
+        imagePosition={homepage.heroImagePosition}
       />
     ),
     about: (

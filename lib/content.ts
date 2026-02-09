@@ -24,6 +24,7 @@ export type Homepage = {
   heroCtaText: string;
   heroCtaHref: string;
   heroImage: string | null;
+  heroImagePosition?: string;
   aboutTitle: string;
   aboutContent: string;
   aboutImage: string | null;

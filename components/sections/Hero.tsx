@@ -7,12 +7,14 @@ export default function Hero({
   ctaText,
   ctaHref,
   image,
+  imagePosition = "top",
 }: {
   title: string;
   subtitle?: string;
   ctaText?: string;
   ctaHref?: string;
   image?: string | null;
+  imagePosition?: string;
 }) {
   return (
     <section
@@ -49,6 +51,7 @@ export default function Hero({
               fill
               sizes="(max-width: 768px) 100vw, 50vw"
               className="object-cover"
+              style={{ objectPosition: imagePosition }}
               priority
             />
           </div>

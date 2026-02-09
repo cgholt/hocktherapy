@@ -1,6 +1,7 @@
 {
   "heroCtaHref": "/contact",
   "heroImage": "/images/jonjon-177.jpg",
+  "heroImagePosition": "top",
   "heroCtaText": "BOOK A FREE CONSULTATION",
   "testimonialsTitle": "What clients say",
   "aboutTitle": "Howdy. I'm Jonathan, an existential psychotherapist.",
