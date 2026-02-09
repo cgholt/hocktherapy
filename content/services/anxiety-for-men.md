@@ -7,10 +7,6 @@ summary: '"The only thing that truly remedies anxiety is courage.  Courage is
 content: >-
   
 
-
-  ## Anxiety Therapy for Men
-
-
   ### Does this sound familiar?
 
 
