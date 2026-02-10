@@ -1,10 +1,58 @@
 ---
 question: Can I use my health insurance?
-answer: I do not participate in insurance panels. This allows me to offer
-  therapy in a philosophical, depathologizing style and focus on the deep,
-  meaningful work that insurance often doesn’t reimburse. If you have
-  out-of-network benefits, you can pay out of pocket and submit a claim to your
-  insurance company yourself. I can provide a receipt with the information you
-  need for reimbursement, though it will include a diagnosis.
+answer: >-
+  I do not participate in insurance panels, however, I've partnered with
+  Mentaya, a service that streamlines getting reimbursed for your therapy
+  sessions through out-of-network benefits.
+
+
+  \    
+
+
+  \    Mentaya is perfect if you:
+
+
+  \    • Have out-of-network benefits
+
+
+  \    • Feel overwhelmed by superbills and insurance
+
+
+  \    • Have submitted superbills but failed to get any reimbursement
+
+
+  \    • Simply want to skip the hassle of paperwork!
+
+
+  \    
+
+
+  \    Here's how it works:
+
+
+  \    1. Sign up for Mentaya: https://mentaya.co/inviteclient/EJyvpi4M9g57xhPWXlTB
+
+
+  \    2. I will enter your sessions into the platform.
+
+
+  \    3. Mentaya submits the claim and handles any insurance follow-up.
+
+
+  \    4. You get reimbursed by insurance!
+
+
+
+
+  \    Mentaya charges a 5% fee per claim, which includes handling any paperwork required,
+
+
+  \    dealing with denials, and calling insurance companies.
+
+
+  \    
+
+
+  \    It's risk-free: They guarantee claims are successfully submitted, or a full refund of their fees.
 order: 5
 ---
