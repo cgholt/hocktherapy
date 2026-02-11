@@ -8,12 +8,12 @@ export function generateStaticParams() {
   return services.map((s) => ({ slug: s.slug }));
 }
 
-export function generateMetadata({
+export async function generateMetadata({
   params,
 }: {
   params: Promise<{ slug: string }>;
 }) {
-  const slug = (params as unknown as { slug: string }).slug;
+  const { slug } = await params;
   const service = getServiceBySlug(slug);
   if (!service) return { title: "Service Not Found" };
   return {
