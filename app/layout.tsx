@@ -60,6 +60,7 @@ export const metadata: Metadata = {
     title: siteConfig.name,
     description: siteConfig.tagline,
   },
+  icons: [],
   robots: {
     index: true,
     follow: true,
