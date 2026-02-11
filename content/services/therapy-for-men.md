@@ -7,8 +7,6 @@ content: >-
   # Does This Sound Familiar?
 
 
-
-
   * You work hard and handle your responsibilities, but feel constantly under pressure.
 
   * You’re the one others rely on, yet you don’t feel like you have anyone to lean on.
@@ -33,31 +31,19 @@ content: >-
   You may not call it depression. You may not call it anxiety.
 
 
-
-
   You might just call it stress. Or life. Or pressure.
-
-
 
 
   But something feels off.
 
 
-
-
   How Modern Men’s Issues Show Up
-
-
 
 
   Most men are not taught how to talk about what hurts.
 
 
-
-
   They are taught to:
-
-
 
 
   * Endure
@@ -69,11 +55,7 @@ content: >-
   * Push through
 
 
-
-
   So when something inside starts breaking down, it often shows up as:
-
-
 
 
   * Irritability instead of sadness
@@ -87,8 +69,6 @@ content: >-
   * Numbing instead of feeling
 
 
-
-
   In your 20s, it may look like confusion about direction or identity.
 
 
@@ -98,11 +78,7 @@ content: >-
   In your 40s, it may look like burnout, resentment, or quiet despair.
 
 
-
-
   Modern men face a strange contradiction. You are expected to be emotionally aware, strong, financially stable, present in relationships, physically fit, ambitious, and calm under pressure. At the same time, few men are shown how to actually develop the emotional skills required to live that way.
-
-
 
 
   The result is often loneliness, anger, relationship strain, and a sense of carrying everything alone.
@@ -111,31 +87,19 @@ content: >-
   # How I Work & Why This May Be a Fit
 
 
-
-
   Let’s be honest.
-
-
 
 
   Most therapists are women. Many male therapists are decades older and trained in models that don’t always reflect the pressures modern men face.
 
 
-
-
   That is not a criticism. It is simply reality.
-
-
 
 
   If you are a man in your 20s, 30s, or 40s trying to build something — a career, a body, a relationship, a life — you may want to sit across from someone who understands that pressure firsthand.
 
 
-
-
   Before becoming a therapist, I served in the Army in a combat role. I worked as a welder. I climbed cell towers. I have lived in working-class environments where weakness is not rewarded and where men are expected to perform under stress.
-
-
 
 
   I understand:
@@ -152,8 +116,6 @@ content: >-
   * The quiet anger that builds when you feel unseen
 
 
-
-
   I do not pathologize masculinity.
 
 
@@ -163,11 +125,7 @@ content: >-
   I do not assume that strength and vulnerability are opposites.
 
 
-
-
   My approach is direct and grounded. We focus on what is happening now, what patterns are holding you back, and what responsibility you are willing to take moving forward.
-
-
 
 
   We will talk plainly.
@@ -179,24 +137,16 @@ content: >-
   And we will not pretend that life is easier than it is.
 
 
-
-
   Therapy with me is not about softening you.
 
 
   It is about integrating you.
 
 
-
-
   # Schedule a Consultation
 
 
-
-
   If you are carrying pressure, anger, loneliness, or directionless frustration and are ready to address it head-on, reach out to schedule a consultation.
-
-
 
 
   You do not have to collapse to get help.
