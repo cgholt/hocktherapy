@@ -155,9 +155,6 @@ content: >-
 
 
 
-  Schedule a Consultation
-
-
 
 
   Reach out to schedule a brief consultation and see if this work feels aligned for you.
