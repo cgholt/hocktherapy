@@ -5,6 +5,15 @@ import matter from "gray-matter";
 
 const contentDir = path.join(process.cwd(), "content");
 
+// Convert 3+ consecutive newlines into paragraph breaks + <br> so
+// extra blank lines added in the CMS actually produce visible spacing.
+function preserveLineBreaks(text: string): string {
+  return text.replace(/\n{3,}/g, (match) => {
+    const extra = match.length - 2;
+    return "\n\n" + "<br>\n\n".repeat(extra);
+  });
+}
+
 // Simple cache to avoid re-reading files during build/request
 const cache = new Map<string, unknown>();
 
@@ -130,7 +139,7 @@ export function getHomepage(): Homepage {
     const content = JSON.parse(fs.readFileSync(filePath, "utf-8"));
     return {
       ...content,
-      aboutContent: marked.parse(content.aboutContent, { async: false, breaks: true }) as string,
+      aboutContent: marked.parse(preserveLineBreaks(content.aboutContent), { async: false, breaks: true }) as string,
     };
   });
 }
@@ -161,7 +170,7 @@ export function getServices(): Service[] {
         const { data } = matter(raw);
         return {
           ...data,
-          content: marked.parse(data.content || "", { async: false, breaks: true }) as string,
+          content: marked.parse(preserveLineBreaks(data.content || ""), { async: false, breaks: true }) as string,
         } as Service;
       })
       .sort((a, b) => a.order - b.order);
@@ -207,7 +216,7 @@ export function getFAQs(): FAQ[] {
         const { data } = matter(raw);
         return {
           ...data,
-          answer: marked.parse(data.answer, { async: false, breaks: true }) as string,
+          answer: marked.parse(preserveLineBreaks(data.answer), { async: false, breaks: true }) as string,
         } as FAQ;
       })
       .sort((a, b) => a.order - b.order);
@@ -279,7 +288,7 @@ export function getPrivacyPolicy(): PrivacyPolicy {
     const content = JSON.parse(fs.readFileSync(filePath, "utf-8"));
     return {
       ...content,
-      content: marked.parse(content.content, { async: false, breaks: true }) as string,
+      content: marked.parse(preserveLineBreaks(content.content), { async: false, breaks: true }) as string,
     };
   });
 }
@@ -297,7 +306,7 @@ export function getAboutPage(): AboutPage {
     const content = JSON.parse(fs.readFileSync(filePath, "utf-8"));
     return {
       ...content,
-      content: marked.parse(content.content, { async: false, breaks: true }) as string,
+      content: marked.parse(preserveLineBreaks(content.content), { async: false, breaks: true }) as string,
     };
   });
 }
