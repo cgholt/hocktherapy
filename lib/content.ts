@@ -162,7 +162,7 @@ export function getServices(): Service[] {
         return {
           ...data,
           content: marked.parse(data.content || "", { async: false, breaks: true }) as string,
-        };
+        } as Service;
       })
       .sort((a, b) => a.order - b.order);
   });
@@ -208,7 +208,7 @@ export function getFAQs(): FAQ[] {
         return {
           ...data,
           answer: marked.parse(data.answer, { async: false, breaks: true }) as string,
-        };
+        } as FAQ;
       })
       .sort((a, b) => a.order - b.order);
   });
