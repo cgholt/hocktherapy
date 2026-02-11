@@ -1,11 +1,8 @@
 ---
 title: Depression Therapy for Men
 slug: depression-therapy-men
-summary: '"And there is certainly joy in life too, but it cannot be pursued,
-  cannot be ‘willed into being’ as joy; rather, it must arise spontaneously, and
-  in fact, it does arise spontaneously, just as an outcome may arise: Happiness
-  should not, must not, and can never be a goal, but only an outcome…" -Viktor
-  Frankl'
+summary: '"When we are no longer able to change a situation -- we are challenged
+  to change ourselves." -Viktor Frankl'
 content: >-
   
 
