@@ -130,7 +130,7 @@ export function getHomepage(): Homepage {
     const content = JSON.parse(fs.readFileSync(filePath, "utf-8"));
     return {
       ...content,
-      aboutContent: marked.parse(content.aboutContent, { async: false }) as string,
+      aboutContent: marked.parse(content.aboutContent, { async: false, breaks: true }) as string,
     };
   });
 }
@@ -160,9 +160,9 @@ export function getServices(): Service[] {
         const raw = fs.readFileSync(path.join(dir, file), "utf-8");
         const { data } = matter(raw);
         return {
-          ...data,
-          content: marked.parse(data.content || "", { async: false }) as string,
-        } as Service;
+          ...content,
+          content: marked.parse(content.content || "", { async: false, breaks: true }) as string,
+        };
       })
       .sort((a, b) => a.order - b.order);
   });
@@ -206,9 +206,8 @@ export function getFAQs(): FAQ[] {
         const raw = fs.readFileSync(path.join(dir, file), "utf-8");
         const { data } = matter(raw);
         return {
-          question: data.question,
-          answer: marked.parse(data.answer || "", { async: false }) as string,
-          order: data.order ?? 0,
+          ...content,
+          answer: marked.parse(content.answer, { async: false, breaks: true }) as string,
         };
       })
       .sort((a, b) => a.order - b.order);
@@ -280,7 +279,7 @@ export function getPrivacyPolicy(): PrivacyPolicy {
     const content = JSON.parse(fs.readFileSync(filePath, "utf-8"));
     return {
       ...content,
-      content: marked.parse(content.content, { async: false }) as string,
+      content: marked.parse(content.content, { async: false, breaks: true }) as string,
     };
   });
 }
