@@ -160,8 +160,8 @@ export function getServices(): Service[] {
         const raw = fs.readFileSync(path.join(dir, file), "utf-8");
         const { data } = matter(raw);
         return {
-          ...content,
-          content: marked.parse(content.content || "", { async: false, breaks: true }) as string,
+          ...data,
+          content: marked.parse(data.content || "", { async: false, breaks: true }) as string,
         };
       })
       .sort((a, b) => a.order - b.order);
@@ -206,8 +206,8 @@ export function getFAQs(): FAQ[] {
         const raw = fs.readFileSync(path.join(dir, file), "utf-8");
         const { data } = matter(raw);
         return {
-          ...content,
-          answer: marked.parse(content.answer, { async: false, breaks: true }) as string,
+          ...data,
+          answer: marked.parse(data.answer, { async: false, breaks: true }) as string,
         };
       })
       .sort((a, b) => a.order - b.order);
@@ -297,7 +297,7 @@ export function getAboutPage(): AboutPage {
     const content = JSON.parse(fs.readFileSync(filePath, "utf-8"));
     return {
       ...content,
-      content: marked.parse(content.content, { async: false }) as string,
+      content: marked.parse(content.content, { async: false, breaks: true }) as string,
     };
   });
 }
