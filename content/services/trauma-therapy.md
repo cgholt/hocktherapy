@@ -3,16 +3,142 @@ title: Trauma Therapy
 slug: trauma-therapy
 summary: '"The wound is the place where the light enters you." -Rumi'
 content: >-
-  
+  Does This Sound Familiar?
 
 
-  Trauma is not only about what happened to you, but about what your system had to do to endure it. When an experience overwhelms your sense of safety, control, or meaning, parts of you may stay on alert long after the danger has passed. This can look like chronic tension, emotional shutdown, sudden anger, difficulty sleeping, intrusive memories, or a feeling that you are never fully present in your own life. Many people carry a quiet confusion about why they react the way they do, especially when others tell them they should be “over it by now.” These responses are not defects. They are signs of a mind and body that adapted to survive when it mattered most.
 
 
-  A helpful way to understand this comes from Emmy van Deurzen’s image of the tree. Trees are wounded constantly by storms, animals, and human interference. Their exposed limbs are vulnerable to pests, fungi, and the elements. In response, the tree does something remarkable. It redirects its resources toward the injury, forming thick knarled growth around the damaged area in an effort to preserve life. Trauma responses function in much the same way: they demand attention and resources or the system is threatened. What may now feel like rigidity, hypervigilance, or emotional armor once served a vital purpose. Healing is not about cutting these parts away, but about allowing the system to finish what it began, restoring flexibility, strength, and connection where there was once threat.
+  * You feel constantly on edge, even when nothing is happening.
+
+  * You react more intensely than the situation calls for.
+
+  * Certain memories feel frozen in time and still carry the same charge.
+
+  * You avoid specific places, conversations, or topics without fully knowing why.
+
+  * Sleep is difficult. Your body never fully relaxes.
+
+  * You feel detached from people you care about.
+
+  * You struggle with sudden anger, shutdown, or emotional numbness.
+
+  * You replay events in your mind, wishing you had acted differently.
+
+  * You blame yourself for what happened or for how you responded.
+
+  * You tell yourself to “just get over it,” but your nervous system refuses.
 
 
-  Trauma therapy offers a gradual and respectful path forward. I draw from established approaches such as Accelerated Resolution Therapy, Written Exposure Therapy, and Trauma Focused Cognitive Behavioral Therapy, while recognizing that meaningful work happens only when you are ready. There is no rush and no forcing of the nervous system. Progress often unfolds through careful pacing, choice, and gentle exposure to what was once too much to face alone. Over time, many people experience relief in their bodies, greater emotional range, and a renewed sense of agency in their lives. Like the tree, you already possess the capacity to heal. Therapy helps you direct your resources toward that work, at your own pace, in your own way.
+
+
+  Trauma is not a sign of weakness. It is what happens when the body and mind are overwhelmed beyond their capacity to process an experience.
+
+
+
+
+  For many men, trauma does not look like fear. It looks like control, distance, irritability, or silence.
+
+
+
+
+  How Trauma Shows Up for Men
+
+
+  Men are often conditioned to override pain rather than process it.
+
+
+  After trauma, this can lead to:
+
+
+  * Hyper-independence and emotional isolation
+
+  * Increased alcohol use or risk-taking behavior
+
+  * Explosive anger or suppressed rage
+
+  * Loss of sexual desire or performance difficulties
+
+  * Difficulty trusting others
+
+  * Emotional shutdown in relationships
+
+  * A persistent sense of threat or vigilance
+
+  * Feeling fundamentally changed, hardened, or disconnected
+
+
+  Many men continue functioning at a high level. They work. Provide. Perform.
+
+
+  But internally, their nervous system remains in survival mode.
+
+
+  Trauma is not just a memory. It is an imprint on the body. The work is not about reliving everything endlessly. It is about helping your system learn that the danger has passed.
+
+
+
+
+  How I Work & Why This May Be a Fit
+
+
+
+
+  My approach to trauma therapy is structured, direct, and evidence-based. I am formally trained in multiple trauma modalities, including:
+
+
+
+
+  * Written Exposure Therapy
+
+  * Accelerated Resolution Therapy
+
+  * Trauma-Focused Cognitive Behavioral Therapy
+
+
+
+
+  These approaches are designed to help the brain and body process traumatic memories in a contained, focused way. They are not open-ended venting. They are targeted and effective.
+
+
+
+
+  At the same time, I work from an existential perspective. Trauma does not only affect the nervous system. It can disrupt a man’s identity, his sense of strength, his trust in the world, and his meaning.
+
+
+
+
+  In our work, we focus on:
+
+
+  * Regulating the nervous system
+
+  * Processing traumatic memories safely and gradually
+
+  * Reducing avoidance and reactivity
+
+  * Rebuilding a sense of agency
+
+  * Integrating the experience into your life story without letting it define you
+
+
+
+
+  You are not weak for being affected by what happened. You are human.
+
+
+
+
+  The goal is not to erase the past. It is to help you move forward without being controlled by it.
+
+
+
+
+  If you are ready to stop managing symptoms and begin resolving what is underneath them, I invite you to reach out for a brief consultation.
+
+
+
+
+  You do not have to keep carrying it alone.
 image: /images/albion-rose-copy.jpg
 order: 3
 ---
