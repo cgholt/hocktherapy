@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import Image from "next/image";
+import Link from "next/link";
 import { getServices, getServiceBySlug } from "lib/content";
 
 export function generateStaticParams() {
@@ -61,6 +62,16 @@ export default async function ServiceDetailPage({
             className="mt-8 text-tertiary [&_h3]:text-primary-foreground [&_h3]:font-semibold [&_h3]:mt-6 [&_h3]:mb-2 [&_p]:mb-4 [&_ul]:list-disc [&_ul]:pl-5 [&_ul]:mb-4 [&_li]:mb-1"
             dangerouslySetInnerHTML={{ __html: service.content }}
           />
+        )}
+        {service.ctaText && (
+          <div className="mt-12 text-center">
+            <Link
+              href="/contact"
+              className="inline-block rounded-lg bg-accent px-8 py-3 text-lg font-semibold text-white hover:bg-accent/90 transition"
+            >
+              {service.ctaText}
+            </Link>
+          </div>
         )}
       </article>
     </main>

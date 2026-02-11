@@ -24,6 +24,22 @@ export default function Footer() {
           <PsychologyTodayBadge />
         </div>
 
+        {/* Contact Info */}
+        {(siteConfig.email || siteConfig.phone) && (
+          <div className="mb-8 flex flex-col sm:flex-row justify-center gap-4 text-sm text-tertiary">
+            {siteConfig.email && (
+              <a href={`mailto:${siteConfig.email}`} className="hover:text-accent transition">
+                {siteConfig.email}
+              </a>
+            )}
+            {siteConfig.phone && (
+              <a href={`tel:${siteConfig.phone.replace(/[^+\d]/g, "")}`} className="hover:text-accent transition">
+                {siteConfig.phone}
+              </a>
+            )}
+          </div>
+        )}
+
         {/* Footer Links and Copyright */}
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
           <p className="text-sm text-tertiary">

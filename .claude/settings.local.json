@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install:*)",
+      "Bash(npm run build:*)",
+      "WebSearch",
+      "WebFetch(domain:decapcms.org)",
+      "WebFetch(domain:uploadcare.com)"
+    ]
+  }
+}
