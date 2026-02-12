@@ -16,7 +16,7 @@ content: >-
 
   * You’ve lost a sense of direction and don’t know what you’re aiming at anymore.
 
-  * You feel trapped by roles — husband, father, provider, leader — and unsure who you are underneath them.
+  * You feel trapped by roles; husband, father, provider, leader, and unsure who you are underneath them.
 
   * You question whether your work, your marriage, or your lifestyle actually reflect who you are.
 
