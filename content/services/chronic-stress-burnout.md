@@ -129,6 +129,6 @@ content: >-
 
 
   If you’re ready to stop running on empty and start living with more intention, steadiness, and meaning, therapy can be a place to begin.
-image: /images/gustave_courbet_-_le_desespere_1843.jpg
+image: /images/shouldering-the-imitation-ox-richard-kearton-1909.webp
 order: 4
 ---
