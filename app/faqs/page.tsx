@@ -32,7 +32,7 @@ export default function FAQsPage() {
                 </span>
               </summary>
               <div
-                className="mt-3 text-tertiary [&_p]:mb-2"
+                className="prose-content mt-3 text-tertiary [&_p]:mb-2"
                 dangerouslySetInnerHTML={{ __html: faq.answer }}
               />
             </details>
