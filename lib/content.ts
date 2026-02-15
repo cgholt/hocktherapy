@@ -78,6 +78,8 @@ export type ColorPreset = {
   primary: string;
   secondary: string;
   accent: string;
+  surface?: string;
+  deep?: string;
 };
 
 export type SiteConfig = {
