@@ -30,7 +30,7 @@ export default function About({
             </h2>
             <div className="mt-1 h-1 w-16 bg-accent rounded" />
             <div
-              className="mt-6 text-tertiary leading-relaxed space-y-4 [&_p]:mb-4"
+              className="prose-content mt-6 text-tertiary leading-relaxed space-y-4 [&_p]:mb-4"
               dangerouslySetInnerHTML={{ __html: content }}
             />
           </div>

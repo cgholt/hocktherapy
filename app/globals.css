@@ -77,12 +77,12 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-a:not(.nav-link) {
+.prose-content a {
   color: var(--accent);
   text-decoration: underline;
 }
 
-a:not(.nav-link):hover {
+.prose-content a:hover {
   opacity: 0.8;
 }
 

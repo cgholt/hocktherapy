@@ -26,7 +26,7 @@ export default function FAQSection({
                 </span>
               </summary>
               <div
-                className="mt-3 text-tertiary [&_p]:mb-2"
+                className="prose-content mt-3 text-tertiary [&_p]:mb-2"
                 dangerouslySetInnerHTML={{ __html: f.answer }}
               />
             </details>
