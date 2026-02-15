@@ -129,6 +129,6 @@ content: >-
 
 
   If you’re ready to stop running on empty and start living with more intention, steadiness, and meaning, therapy can be a place to begin.
-image: /images/documerica-23.webp
+image: /images/documerica-72.webp
 order: 4
 ---
