@@ -117,7 +117,7 @@ content: >-
 
 
   ## It is up to you to decide what kind of life you are willing to live.
-image: /images/session-for-the-blind-at-sunderland-museum-1913.webp
+image: /images/32803072748_f44d15d842_o.webp
 order: 1
 ctaText: Schedule a consultation with an existential psychotherapist
 ---
