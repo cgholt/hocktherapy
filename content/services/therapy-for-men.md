@@ -141,6 +141,6 @@ content: >-
 
 
   You just have to decide you are done doing it alone.
-image: /images/4525451583_31ae962c3a_z.webp
+image: /images/a_u.s._navy_hull_maintenance_technician_3rd_class_robert_frey_fabricates_a_steel_countertop_aboard_the_aircraft_carrier_uss_nimitz_-cvn_68-_aug._20-_2013-_while_underway_in_the_gulf_of_oman_130820.jpg
 order: 2
 ---
