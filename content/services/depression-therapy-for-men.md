@@ -101,6 +101,6 @@ content: >-
 
 
   If you are ready to understand your depression rather than simply endure it, therapy can be a place to begin rebuilding meaning, strength, and direction.
-image: /images/sad-paintings.webp
+image: /images/shouldering-the-imitation-ox-richard-kearton-1909.webp
 order: 6
 ---
