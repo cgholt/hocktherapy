@@ -8,7 +8,7 @@ import ThemeProvider from "components/ThemeProvider";
 import BackgroundImage from "components/BackgroundImage";
 import { LocalBusinessSchema } from "components/StructuredData";
 import NotificationBanner from "components/NotificationBanner";
-import { getSiteConfig, getActiveColorPreset, validHexColor } from "lib/content";
+import { getSiteConfig, getActiveColorPreset, validHexColor, getHomepage } from "lib/content";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -27,6 +27,7 @@ const themeScript = `
 
 const siteConfig = getSiteConfig();
 const activeColorPreset = getActiveColorPreset();
+const homepage = getHomepage();
 
 // Generate CSS variables from active color preset
 const colorStyles = activeColorPreset ? `
@@ -77,7 +78,17 @@ export default function RootLayout({
   return (
     <html lang="en" className={playfair.variable} suppressHydrationWarning>
       <head>
+        <link rel="preconnect" href="https://www.google-analytics.com" />
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
         <GoogleAnalytics gaId="G-3F654PFG50" />
+        {homepage.heroImage && (
+          <link
+            rel="preload"
+            as="image"
+            href={homepage.heroImage}
+            fetchPriority="high"
+          />
+        )}
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
         {colorStyles && <style dangerouslySetInnerHTML={{ __html: colorStyles }} />}
         <LocalBusinessSchema

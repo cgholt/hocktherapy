@@ -55,6 +55,7 @@ export default function Hero({
               className="object-cover"
               style={{ objectPosition: imagePosition }}
               priority
+              fetchPriority="high"
             />
           </div>
         )}
