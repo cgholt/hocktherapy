@@ -118,7 +118,7 @@ content: >-
 
 
   If you’re ready to stop fighting yourself and start understanding what your anxiety is calling you toward, therapy can be a place to begin.
-image: /images/nov-21-prints-00006.jpg
+image: /images/nov-21-prints-00006.webp
 order: 5
 ctaText: Schedule a consultation with a men's anxiety therapist
 ---
