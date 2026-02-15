@@ -42,6 +42,7 @@ export default function HomePage() {
         ctaText={homepage.heroCtaText}
         ctaHref={homepage.heroCtaHref}
         image={homepage.heroImage}
+        imageCredit={homepage.heroImageCredit}
         imagePosition={homepage.heroImagePosition}
       />
     ),
@@ -50,6 +51,7 @@ export default function HomePage() {
         title={homepage.aboutTitle}
         content={homepage.aboutContent}
         image={homepage.aboutImage}
+        imageCredit={homepage.aboutImageCredit}
       />
     ),
     services: <Services items={services} />,

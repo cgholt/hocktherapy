@@ -21,6 +21,7 @@ export default function AboutPage() {
               width={200}
               height={200}
               className="rounded-full object-cover w-48 h-48"
+              {...(about.imageCredit ? { title: about.imageCredit } : {})}
             />
           </div>
         )}
