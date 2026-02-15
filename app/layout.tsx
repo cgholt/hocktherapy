@@ -34,6 +34,8 @@ const colorStyles = activeColorPreset ? `
     --primary: ${activeColorPreset.primary || '#181619'};
     --secondary: ${activeColorPreset.secondary || '#272a31'};
     --accent: ${activeColorPreset.accent || '#a76b09'};
+    --surface: ${activeColorPreset.surface || '#f5f0eb'};
+    --deep: ${activeColorPreset.deep || '#3a3d45'};
   }
 ` : '';
 const siteUrl = process.env.SITE_URL || "https://example.com";
