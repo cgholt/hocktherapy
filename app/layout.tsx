@@ -91,6 +91,7 @@ export default function RootLayout({
           <BackgroundImage
             src={siteConfig.backgroundImage}
             overlay={siteConfig.backgroundOverlay}
+            imageCredit={siteConfig.backgroundImageCredit}
           />
         )}
         <ThemeProvider>

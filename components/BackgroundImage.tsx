@@ -5,9 +5,11 @@ import { useEffect, useRef } from "react";
 export default function BackgroundImage({
   src,
   overlay = 50,
+  imageCredit,
 }: {
   src: string;
   overlay?: number;
+  imageCredit?: string;
 }) {
   const bgRef = useRef<HTMLDivElement>(null);
   const rafRef = useRef<number>(0);
@@ -39,6 +41,7 @@ export default function BackgroundImage({
       ref={bgRef}
       className="fixed inset-0 -z-10 bg-cover bg-no-repeat"
       style={{ backgroundImage: `url(${src})` }}
+      {...(imageCredit ? { title: imageCredit } : {})}
     >
       <div
         className="absolute inset-0"

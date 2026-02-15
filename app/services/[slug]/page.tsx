@@ -35,7 +35,7 @@ export default async function ServiceDetailPage({
     <main className="min-h-screen bg-primary">
       <article className="mx-auto max-w-3xl px-6 py-12">
         {service.image && (
-          <div className="relative aspect-video rounded-xl overflow-hidden mb-8 ring-2 ring-tertiary">
+          <div className="relative aspect-video rounded-xl overflow-hidden mb-8 ring-2 ring-tertiary" {...(service.imageCredit ? { title: service.imageCredit } : {})}>
             <Image
               src={service.image}
               alt={service.title}

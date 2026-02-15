@@ -4,17 +4,19 @@ export default function About({
   title,
   content,
   image,
+  imageCredit,
 }: {
   title?: string;
   content: string;
   image?: string | null;
+  imageCredit?: string;
 }) {
   return (
     <section className="bg-secondary">
       <div className="mx-auto max-w-7xl px-6 py-16">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {image && (
-            <div className="relative aspect-[4/5] rounded-xl overflow-hidden ring-2 ring-tertiary">
+            <div className="relative aspect-[4/5] rounded-xl overflow-hidden ring-2 ring-tertiary" {...(imageCredit ? { title: imageCredit } : {})}>
               <Image
                 src={image}
                 alt={title || "About"}

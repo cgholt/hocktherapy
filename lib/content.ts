@@ -54,10 +54,12 @@ export type Homepage = {
   heroCtaText: string;
   heroCtaHref: string;
   heroImage: string | null;
+  heroImageCredit?: string;
   heroImagePosition?: string;
   aboutTitle: string;
   aboutContent: string;
   aboutImage: string | null;
+  aboutImageCredit?: string;
   testimonialsTitle: string;
   faqsTitle: string;
 };
@@ -70,6 +72,7 @@ export type Service = {
   durationMinutes?: number;
   price?: number;
   image?: string | null;
+  imageCredit?: string;
   order: number;
   ctaText?: string;
 };
@@ -110,6 +113,7 @@ export type SiteConfig = {
   phone?: string;
   nav: { label: string; href: string; enabled?: boolean }[];
   backgroundImage?: string | null;
+  backgroundImageCredit?: string;
   backgroundOverlay?: number;
   activeColorPreset?: string;
 };
@@ -139,6 +143,7 @@ export type AboutPage = {
   title: string;
   content: string;
   image?: string | null;
+  imageCredit?: string;
 };
 
 export type FAQsPage = {
