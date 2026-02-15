@@ -8,7 +8,7 @@ import ThemeProvider from "components/ThemeProvider";
 import BackgroundImage from "components/BackgroundImage";
 import { LocalBusinessSchema } from "components/StructuredData";
 import NotificationBanner from "components/NotificationBanner";
-import { getSiteConfig, getActiveColorPreset } from "lib/content";
+import { getSiteConfig, getActiveColorPreset, validHexColor } from "lib/content";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -31,11 +31,11 @@ const activeColorPreset = getActiveColorPreset();
 // Generate CSS variables from active color preset
 const colorStyles = activeColorPreset ? `
   :root {
-    --primary: ${activeColorPreset.primary || '#181619'};
-    --secondary: ${activeColorPreset.secondary || '#272a31'};
-    --accent: ${activeColorPreset.accent || '#a76b09'};
-    --surface: ${activeColorPreset.surface || '#f5f0eb'};
-    --deep: ${activeColorPreset.deep || '#3a3d45'};
+    --primary: ${validHexColor(activeColorPreset.primary, '#181619')};
+    --secondary: ${validHexColor(activeColorPreset.secondary, '#272a31')};
+    --accent: ${validHexColor(activeColorPreset.accent, '#a76b09')};
+    --surface: ${validHexColor(activeColorPreset.surface, '#f5f0eb')};
+    --deep: ${validHexColor(activeColorPreset.deep, '#3a3d45')};
   }
 ` : '';
 const siteUrl = process.env.SITE_URL || "https://example.com";
