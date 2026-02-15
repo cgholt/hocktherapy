@@ -141,6 +141,6 @@ content: >-
 
 
   You just have to decide you are done doing it alone.
-image: /images/nov-21-prints-00006.jpg
+image: /images/4525451583_31ae962c3a_z.webp
 order: 2
 ---
