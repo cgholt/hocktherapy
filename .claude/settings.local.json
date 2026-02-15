@@ -5,7 +5,10 @@
       "Bash(npm run build:*)",
       "WebSearch",
       "WebFetch(domain:decapcms.org)",
-      "WebFetch(domain:uploadcare.com)"
+      "WebFetch(domain:uploadcare.com)",
+      "Bash(ls:*)",
+      "Bash(grep:*)",
+      "Bash(npm run test:run:*)"
     ]
   }
 }

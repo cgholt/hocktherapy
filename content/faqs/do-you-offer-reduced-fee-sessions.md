@@ -13,6 +13,6 @@ answer: >-
   To access Open Path rates, clients pay a **one-time $65 lifetime membership fee** directly to Open Path (not to me). After that, sessions remain in the reduced-fee range as long as you’re working with an Open Path therapist.
 
 
-  You can check my current Open Path availability [here](< https://openpathcollective.org/therapist/jonathan-hock/>)[](https://openpathcollective.org/therapist/jonathan-hock/)
+  You can check my current Open Path availability [here](https://openpathcollective.org/therapist/jonathan-hock/)
 order: 6
 ---

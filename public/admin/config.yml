@@ -128,6 +128,8 @@ collections:
       - { name: primary, label: Primary Color, widget: color, default: "#181619", hint: "Main background color (dark)" }
       - { name: secondary, label: Secondary Color, widget: color, default: "#272a31", hint: "Secondary background color (slightly lighter)" }
       - { name: accent, label: Accent Color, widget: color, default: "#a76b09", hint: "Accent color for buttons and highlights" }
+      - { name: surface, label: Surface Color, widget: color, default: "#f5f0eb", hint: "Light neutral color for cards and overlays", required: false }
+      - { name: deep, label: Deep Color, widget: color, default: "#3a3d45", hint: "Dark warm color for borders and deep backgrounds", required: false }
 
   - name: banner
     label: Notification Banner
