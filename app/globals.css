@@ -77,6 +77,15 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+a:not(.nav-link) {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+a:not(.nav-link):hover {
+  opacity: 0.8;
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-playfair), serif;
   text-transform: uppercase;
