@@ -1,8 +1,10 @@
 import Link from "next/link";
-import { getSiteConfig } from "lib/content";
+import { getSiteConfig, getServices } from "lib/content";
+import ServicesDropdown from "components/ServicesDropdown";
 
 export default function Header() {
   const siteConfig = getSiteConfig();
+  const services = getServices().map((s) => ({ title: s.title, slug: s.slug }));
 
   return (
     <header className="border-b border-border bg-primary">
@@ -29,16 +31,20 @@ export default function Header() {
         <ul className="flex items-center gap-4 md:gap-6">
           {siteConfig.nav
             .filter((link) => link.enabled !== false)
-            .map((link) => (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  className="nav-link text-sm md:text-base font-medium text-tertiary hover:text-accent transition"
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
+            .map((link) =>
+              link.href === "/services" ? (
+                <ServicesDropdown key={link.href} label={link.label} services={services} />
+              ) : (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="nav-link text-sm md:text-base font-medium text-tertiary hover:text-accent transition"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              )
+            )}
         </ul>
       </nav>
     </header>

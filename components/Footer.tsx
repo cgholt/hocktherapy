@@ -1,27 +1,29 @@
 import Link from "next/link";
 import { getSiteConfig } from "lib/content";
 import PsychologyTodayBadge from "./PsychologyTodayBadge";
+import MentayaBadge from "./MentayaBadge";
 
 export default function Footer() {
   const siteConfig = getSiteConfig();
   const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-border bg-primary">
+    <footer className="mt-16 border-t-2 border-accent/40 bg-secondary">
       <div className="mx-auto max-w-7xl px-6 py-12">
-        {/* Crisis Disclaimer */}
-        <div className="mb-8 rounded-lg border border-accent/30 bg-secondary p-4">
-          <p className="text-sm text-tertiary">
-            <strong className="text-accent">Important:</strong> This website is not intended for crisis situations.
-            If you are experiencing a mental health emergency, please call{" "}
-            <a href="tel:988" className="text-accent underline">988</a> (Suicide &amp; Crisis Lifeline),
-            call <a href="tel:911" className="text-accent underline">911</a>, or go to your nearest emergency room.
-          </p>
-        </div>
-
-        {/* Psychology Today Verified Badge */}
-        <div className="mb-8">
-          <PsychologyTodayBadge />
+        {/* Crisis Disclaimer + Badges Row */}
+        <div className="mb-8 flex flex-col md:flex-row items-center gap-6">
+          <div className="flex-1 rounded-lg border border-accent/30 bg-tertiary p-4">
+            <p className="text-sm text-primary">
+              <strong className="text-accent">Important:</strong> This website is not intended for crisis situations.
+              If you are experiencing a mental health emergency, please call{" "}
+              <a href="tel:988" className="text-accent underline">988</a> (Suicide &amp; Crisis Lifeline),
+              call <a href="tel:911" className="text-accent underline">911</a>, or go to your nearest emergency room.
+            </p>
+          </div>
+          <div className="flex shrink-0 items-center gap-4">
+            <PsychologyTodayBadge />
+            <MentayaBadge />
+          </div>
         </div>
 
         {/* Contact Info */}
