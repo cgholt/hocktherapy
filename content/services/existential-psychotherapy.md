@@ -1,7 +1,7 @@
 ---
 title: Existential Therapy for Men
 slug: existential-therapy
-summary: '"What I am, this I become through my decisions." -Karl Jaspers!'
+summary: '"What I am, this I become through my decisions." -Karl Jaspers'
 content: >-
   # Does This Sound Familiar?
 
