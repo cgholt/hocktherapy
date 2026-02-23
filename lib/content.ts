@@ -2,6 +2,7 @@ import fs from "fs";
 import path from "path";
 import { marked } from "marked";
 import matter from "gray-matter";
+import sanitizeHtml from "sanitize-html";
 
 const contentDir = path.join(process.cwd(), "content");
 
@@ -12,6 +13,26 @@ function preserveLineBreaks(text: string): string {
     const extra = match.length - 2;
     return "\n\n" + "<br>\n\n".repeat(extra);
   });
+}
+
+// Parse markdown and sanitize the resulting HTML to prevent XSS
+function safeMarkdown(text: string): string {
+  const html = marked.parse(preserveLineBreaks(text), { async: false, breaks: true }) as string;
+  return sanitizeHtml(html, {
+    allowedTags: sanitizeHtml.defaults.allowedTags.concat(["img", "br", "details", "summary"]),
+    allowedAttributes: {
+      ...sanitizeHtml.defaults.allowedAttributes,
+      img: ["src", "alt", "title", "width", "height"],
+      a: ["href", "title", "target", "rel"],
+    },
+    allowedSchemes: ["http", "https", "mailto"],
+  });
+}
+
+// Validate that a string is a valid hex color, returns fallback if not
+export function validHexColor(value: string | undefined, fallback: string): string {
+  if (value && /^#[0-9a-f]{3,8}$/i.test(value)) return value;
+  return fallback;
 }
 
 // Simple cache to avoid re-reading files during build/request
@@ -33,10 +54,12 @@ export type Homepage = {
   heroCtaText: string;
   heroCtaHref: string;
   heroImage: string | null;
+  heroImageCredit?: string;
   heroImagePosition?: string;
   aboutTitle: string;
   aboutContent: string;
   aboutImage: string | null;
+  aboutImageCredit?: string;
   testimonialsTitle: string;
   faqsTitle: string;
 };
@@ -49,6 +72,7 @@ export type Service = {
   durationMinutes?: number;
   price?: number;
   image?: string | null;
+  imageCredit?: string;
   order: number;
   ctaText?: string;
 };
@@ -78,6 +102,8 @@ export type ColorPreset = {
   primary: string;
   secondary: string;
   accent: string;
+  surface?: string;
+  deep?: string;
 };
 
 export type SiteConfig = {
@@ -87,6 +113,7 @@ export type SiteConfig = {
   phone?: string;
   nav: { label: string; href: string; enabled?: boolean }[];
   backgroundImage?: string | null;
+  backgroundImageCredit?: string;
   backgroundOverlay?: number;
   activeColorPreset?: string;
 };
@@ -116,6 +143,7 @@ export type AboutPage = {
   title: string;
   content: string;
   image?: string | null;
+  imageCredit?: string;
 };
 
 export type FAQsPage = {
@@ -139,7 +167,7 @@ export function getHomepage(): Homepage {
     const content = JSON.parse(fs.readFileSync(filePath, "utf-8"));
     return {
       ...content,
-      aboutContent: marked.parse(preserveLineBreaks(content.aboutContent), { async: false, breaks: true }) as string,
+      aboutContent: safeMarkdown(content.aboutContent),
     };
   });
 }
@@ -170,7 +198,7 @@ export function getServices(): Service[] {
         const { data } = matter(raw);
         return {
           ...data,
-          content: marked.parse(preserveLineBreaks(data.content || ""), { async: false, breaks: true }) as string,
+          content: safeMarkdown(data.content || ""),
         } as Service;
       })
       .sort((a, b) => a.order - b.order);
@@ -216,7 +244,7 @@ export function getFAQs(): FAQ[] {
         const { data } = matter(raw);
         return {
           ...data,
-          answer: marked.parse(preserveLineBreaks(data.answer), { async: false, breaks: true }) as string,
+          answer: safeMarkdown(data.answer),
         } as FAQ;
       })
       .sort((a, b) => a.order - b.order);
@@ -263,6 +291,8 @@ export function getColorPresets(): ColorPreset[] {
           primary: data.primary,
           secondary: data.secondary,
           accent: data.accent,
+          surface: data.surface,
+          deep: data.deep,
           slug,
         };
       }
@@ -288,7 +318,7 @@ export function getPrivacyPolicy(): PrivacyPolicy {
     const content = JSON.parse(fs.readFileSync(filePath, "utf-8"));
     return {
       ...content,
-      content: marked.parse(preserveLineBreaks(content.content), { async: false, breaks: true }) as string,
+      content: safeMarkdown(content.content),
     };
   });
 }
@@ -306,7 +336,7 @@ export function getAboutPage(): AboutPage {
     const content = JSON.parse(fs.readFileSync(filePath, "utf-8"));
     return {
       ...content,
-      content: marked.parse(preserveLineBreaks(content.content), { async: false, breaks: true }) as string,
+      content: safeMarkdown(content.content),
     };
   });
 }

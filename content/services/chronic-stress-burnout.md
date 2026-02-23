@@ -1,7 +1,9 @@
 ---
 title: Chronic Stress & Burnout
 slug: chronic-stress-burnout
-summary: "-"
+summary: “If you really want to escape the things that harass you, what you’re
+  needing is not to be in a different place but to be a different person.”
+  -Lucius Annaeus Seneca
 content: >-
   
 
@@ -129,6 +131,6 @@ content: >-
 
 
   If you’re ready to stop running on empty and start living with more intention, steadiness, and meaning, therapy can be a place to begin.
-image: /images/gustave_courbet_-_le_desespere_1843.jpg
+image: /images/havana_-_cuba_-_man_giving_a_v_sign_-_1326.jpg
 order: 4
 ---

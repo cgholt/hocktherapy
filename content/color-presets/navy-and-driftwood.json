@@ -1,6 +1,8 @@
 {
   "name": "Navy & Driftwood",
   "primary": "#2C3E50",
-  "secondary": "#9C8B7A",
-  "accent": "#5D6D7E"
+  "secondary": "#5D6D7E",
+  "accent": "#9C8B7A",
+  "surface": "#E8E4DF",
+  "deep": "#6B5B4E"
 }

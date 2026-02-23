@@ -1,7 +1,7 @@
 ---
 title: Existential Therapy for Men
 slug: existential-therapy
-summary: '"What I am, this I become through my decisions." -Karl Jaspers!'
+summary: '"What I am, this I become through my decisions." -Karl Jaspers'
 content: >-
   # Does This Sound Familiar?
 
@@ -16,7 +16,7 @@ content: >-
 
   * You’ve lost a sense of direction and don’t know what you’re aiming at anymore.
 
-  * You feel trapped by roles — husband, father, provider, leader — and unsure who you are underneath them.
+  * You feel trapped by roles; husband, father, provider, leader, and unsure who you are underneath them.
 
   * You question whether your work, your marriage, or your lifestyle actually reflect who you are.
 
@@ -117,7 +117,7 @@ content: >-
 
 
   ## It is up to you to decide what kind of life you are willing to live.
-image: /images/29966395810_0f91a20929_o.webp
+image: /images/32803072748_f44d15d842_o.webp
 order: 1
 ctaText: Schedule a consultation with an existential psychotherapist
 ---

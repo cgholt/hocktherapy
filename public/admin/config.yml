@@ -31,6 +31,7 @@ collections:
               widget: image,
               required: false,
             }
+          - { name: heroImageCredit, label: Hero Image Credit, widget: string, required: false, hint: "Attribution text shown on hover (e.g., 'Photo by Jane Doe')" }
           - {
               name: heroImagePosition,
               label: Hero Image Focal Point,
@@ -48,6 +49,7 @@ collections:
               widget: image,
               required: false,
             }
+          - { name: aboutImageCredit, label: About Image Credit, widget: string, required: false, hint: "Attribution text shown on hover (e.g., 'Photo by Jane Doe')" }
           - {
               name: testimonialsTitle,
               label: Testimonials Section Title,
@@ -71,6 +73,7 @@ collections:
           required: false,
         }
       - { name: image, label: Image, widget: image, required: false }
+      - { name: imageCredit, label: Image Credit, widget: string, required: false, hint: "Attribution text shown on hover (e.g., 'Photo by Jane Doe')" }
       - {
           name: durationMinutes,
           label: Duration (minutes),
@@ -128,6 +131,8 @@ collections:
       - { name: primary, label: Primary Color, widget: color, default: "#181619", hint: "Main background color (dark)" }
       - { name: secondary, label: Secondary Color, widget: color, default: "#272a31", hint: "Secondary background color (slightly lighter)" }
       - { name: accent, label: Accent Color, widget: color, default: "#a76b09", hint: "Accent color for buttons and highlights" }
+      - { name: surface, label: Surface Color, widget: color, default: "#f5f0eb", hint: "Light neutral color for cards and overlays", required: false }
+      - { name: deep, label: Deep Color, widget: color, default: "#3a3d45", hint: "Dark warm color for borders and deep backgrounds", required: false }
 
   - name: banner
     label: Notification Banner
@@ -162,6 +167,7 @@ collections:
               - { name: href, label: URL, widget: string }
               - { name: enabled, label: Show in Navbar, widget: boolean, default: true, hint: "When disabled, the page is still accessible via direct URL but won't appear in the navigation" }
           - { name: backgroundImage, label: Background Image, widget: image, required: false, hint: "Large image displayed behind the entire site" }
+          - { name: backgroundImageCredit, label: Background Image Credit, widget: string, required: false, hint: "Attribution text shown on hover (e.g., 'Photo by Jane Doe')" }
           - { name: backgroundOverlay, label: Background Overlay, widget: number, default: 50, min: 0, max: 100, hint: "Darkness of overlay on background image (0 = none, 100 = fully dark)" }
           - name: activeColorPreset
             label: Active Color Preset
@@ -209,6 +215,7 @@ collections:
         fields:
           - { name: title, label: Page Title, widget: string }
           - { name: image, label: Headshot, widget: image, required: false, hint: "Optional profile photo displayed at the top of the page" }
+          - { name: imageCredit, label: Image Credit, widget: string, required: false, hint: "Attribution text shown on hover (e.g., 'Photo by Jane Doe')" }
           - { name: content, label: Content, widget: markdown }
 
   - name: faqs-page

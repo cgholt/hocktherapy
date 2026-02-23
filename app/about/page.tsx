@@ -21,6 +21,7 @@ export default function AboutPage() {
               width={200}
               height={200}
               className="rounded-full object-cover w-48 h-48"
+              {...(about.imageCredit ? { title: about.imageCredit } : {})}
             />
           </div>
         )}
@@ -29,7 +30,7 @@ export default function AboutPage() {
         </h1>
         <div className="mt-1 h-1 w-16 bg-accent rounded" />
         <div
-          className="mt-8 prose prose-invert prose-headings:text-primary-foreground prose-p:text-tertiary prose-a:text-accent prose-strong:text-primary-foreground max-w-none"
+          className="prose-content mt-8 prose prose-invert prose-headings:text-primary-foreground prose-p:text-tertiary prose-a:text-accent prose-strong:text-primary-foreground max-w-none"
           dangerouslySetInnerHTML={{ __html: about.content }}
         />
       </div>

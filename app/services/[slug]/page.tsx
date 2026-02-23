@@ -35,7 +35,7 @@ export default async function ServiceDetailPage({
     <main className="min-h-screen bg-primary">
       <article className="mx-auto max-w-3xl px-6 py-12">
         {service.image && (
-          <div className="relative aspect-video rounded-xl overflow-hidden mb-8 ring-2 ring-tertiary">
+          <div className="relative aspect-video rounded-xl overflow-hidden mb-8 ring-2 ring-tertiary" {...(service.imageCredit ? { title: service.imageCredit } : {})}>
             <Image
               src={service.image}
               alt={service.title}
@@ -59,7 +59,7 @@ export default async function ServiceDetailPage({
         )}
         {service.content && (
           <div
-            className="mt-8 text-tertiary [&_h3]:text-primary-foreground [&_h3]:font-semibold [&_h3]:mt-6 [&_h3]:mb-2 [&_p]:mb-4 [&_ul]:list-disc [&_ul]:pl-5 [&_ul]:mb-4 [&_li]:mb-1"
+            className="prose-content mt-8 text-tertiary [&_h3]:text-primary-foreground [&_h3]:font-semibold [&_h3]:mt-6 [&_h3]:mb-2 [&_p]:mb-4 [&_ul]:list-disc [&_ul]:pl-5 [&_ul]:mb-4 [&_li]:mb-1"
             dangerouslySetInnerHTML={{ __html: service.content }}
           />
         )}

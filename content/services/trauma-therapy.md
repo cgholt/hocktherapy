@@ -139,6 +139,6 @@ content: >-
 
 
   You do not have to keep carrying it alone.
-image: /images/albion-rose-copy.jpg
+image: /images/photo-from-apollo-11-mission-nasa-1969.webp
 order: 3
 ---

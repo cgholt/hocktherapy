@@ -20,9 +20,9 @@ export default function FAQsPage() {
         {page.description && (
           <p className="mt-4 text-tertiary">{page.description}</p>
         )}
-        <div className="mt-8 divide-y divide-border">
+        <div className="mt-8 space-y-3">
           {faqs.map((faq) => (
-            <details key={faq.question} className="group py-4">
+            <details key={faq.question} className="group bg-secondary rounded-lg border border-border px-5 py-4">
               <summary className="flex cursor-pointer list-none items-center justify-between">
                 <span className="font-medium text-primary-foreground group-hover:text-accent transition">
                   {faq.question}
@@ -32,7 +32,7 @@ export default function FAQsPage() {
                 </span>
               </summary>
               <div
-                className="mt-3 text-tertiary [&_p]:mb-2"
+                className="prose-content mt-3 text-tertiary [&_p]:mb-2"
                 dangerouslySetInnerHTML={{ __html: faq.answer }}
               />
             </details>

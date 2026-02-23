@@ -69,15 +69,6 @@ content: >-
   * Numbing instead of feeling
 
 
-  In your 20s, it may look like confusion about direction or identity.
-
-
-  In your 30s, it may look like pressure to build, provide, and perform.
-
-
-  In your 40s, it may look like burnout, resentment, or quiet despair.
-
-
   Modern men face a strange contradiction. You are expected to be emotionally aware, strong, financially stable, present in relationships, physically fit, ambitious, and calm under pressure. At the same time, few men are shown how to actually develop the emotional skills required to live that way.
 
 
@@ -143,9 +134,6 @@ content: >-
   It is about integrating you.
 
 
-  # Schedule a Consultation
-
-
   If you are carrying pressure, anger, loneliness, or directionless frustration and are ready to address it head-on, reach out to schedule a consultation.
 
 
@@ -153,6 +141,6 @@ content: >-
 
 
   You just have to decide you are done doing it alone.
-image: /images/nov-21-prints-00006.jpg
+image: /images/a_u.s._navy_hull_maintenance_technician_3rd_class_robert_frey_fabricates_a_steel_countertop_aboard_the_aircraft_carrier_uss_nimitz_-cvn_68-_aug._20-_2013-_while_underway_in_the_gulf_of_oman_130820.jpg
 order: 2
 ---

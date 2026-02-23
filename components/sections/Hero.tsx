@@ -7,6 +7,7 @@ export default function Hero({
   ctaText,
   ctaHref,
   image,
+  imageCredit,
   imagePosition = "top",
 }: {
   title: string;
@@ -14,6 +15,7 @@ export default function Hero({
   ctaText?: string;
   ctaHref?: string;
   image?: string | null;
+  imageCredit?: string;
   imagePosition?: string;
 }) {
   return (
@@ -44,7 +46,7 @@ export default function Hero({
           )}
         </div>
         {image && (
-          <div className="relative aspect-[4/3] md:aspect-[5/4] rounded-xl ring-1 ring-tertiary overflow-hidden">
+          <div className="relative aspect-[4/3] md:aspect-[5/4] rounded-xl ring-1 ring-tertiary overflow-hidden" {...(imageCredit ? { title: imageCredit } : {})}>
             <Image
               src={image}
               alt="Hero"
@@ -53,6 +55,7 @@ export default function Hero({
               className="object-cover"
               style={{ objectPosition: imagePosition }}
               priority
+              fetchPriority="high"
             />
           </div>
         )}

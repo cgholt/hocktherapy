@@ -14,9 +14,9 @@ export default function FAQSection({
           {title || "Frequently asked questions"}
         </h2>
         <div className="mt-1 h-1 w-16 bg-accent rounded" />
-        <div className="mt-8 divide-y divide-border">
+        <div className="mt-8 space-y-3">
           {items.map((f) => (
-            <details key={f.question} className="group py-4">
+            <details key={f.question} className="group bg-secondary rounded-lg border border-border px-5 py-4">
               <summary className="flex cursor-pointer list-none items-center justify-between">
                 <span className="font-medium text-primary-foreground group-hover:text-accent transition">
                   {f.question}
@@ -26,7 +26,7 @@ export default function FAQSection({
                 </span>
               </summary>
               <div
-                className="mt-3 text-tertiary [&_p]:mb-2"
+                className="prose-content mt-3 text-tertiary [&_p]:mb-2"
                 dangerouslySetInnerHTML={{ __html: f.answer }}
               />
             </details>

@@ -5,7 +5,18 @@
       "Bash(npm run build:*)",
       "WebSearch",
       "WebFetch(domain:decapcms.org)",
-      "WebFetch(domain:uploadcare.com)"
+      "WebFetch(domain:uploadcare.com)",
+      "Bash(ls:*)",
+      "Bash(grep:*)",
+      "Bash(npm run test:run:*)",
+      "Bash(dpkg -l:*)",
+      "Bash(convert:*)",
+      "Bash(cwebp:*)",
+      "Bash(magick:*)",
+      "Bash(npx sharp-cli:*)",
+      "Bash(python3:*)",
+      "Bash(echo:*)",
+      "Bash(chmod:*)"
     ]
   }
 }

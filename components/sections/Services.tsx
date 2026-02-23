@@ -20,7 +20,7 @@ export default function Services({ items }: { items: Service[] }) {
               className="group rounded-xl border border-border bg-secondary p-4 hover:border-tertiary transition"
             >
               {s.image && (
-                <div className="relative aspect-video rounded-lg overflow-hidden">
+                <div className="relative aspect-video rounded-lg overflow-hidden" {...(s.imageCredit ? { title: s.imageCredit } : {})}>
                   <Image
                     src={s.image}
                     alt={s.title}
