@@ -4,7 +4,7 @@ answer: >-
   Yes—but they are **limited**.
 
 
-  I partner with **Open Path Psychotherapy Collective** and reserve a small number of slots each week at **$50–$70 per 50-minute session**.
+  I partner with **Open Path Psychotherapy Collective** and reserve a small number of slots each week at **$70 per 50-minute session**. These reduced fee sessions are limited to my least requested time slots, 10AM-3PM. 
 
 
   Open Path is a **nonprofit organization** that connects **uninsured or underinsured individuals** with affordable therapy.
