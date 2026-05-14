@@ -78,18 +78,6 @@ content: >-
   # How I Work & Why This May Be a Fit
 
 
-  Let’s be honest.
-
-
-  Most therapists are women. Many male therapists are decades older and trained in models that don’t always reflect the pressures modern men face.
-
-
-  That is not a criticism. It is simply reality.
-
-
-  If you are a man in your 20s, 30s, or 40s trying to build something — a career, a body, a relationship, a life — you may want to sit across from someone who understands that pressure firsthand.
-
-
   Before becoming a therapist, I served in the Army in a combat role. I worked as a welder. I climbed cell towers. I have lived in working-class environments where weakness is not rewarded and where men are expected to perform under stress.
 
 
