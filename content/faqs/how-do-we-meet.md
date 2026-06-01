@@ -1,8 +1,9 @@
 ---
 question: "Where and when do we meet? "
 answer: >-
-  I offer in-person services at 4203 Yoakum Blvd, Suite 230, Houston Texas,
-  77006. 
+  I offer in-person services in the heart of the Montrose neighborhood in
+  Houston Texas, 77006. The exact address is given to potential and active
+  clients. 
 
 
   I offer video sessions via a secure telehealth platform to residents of Texas.
