@@ -86,6 +86,38 @@ body {
   opacity: 0.8;
 }
 
+.prose-content h1,
+.prose-content h2,
+.prose-content h3 {
+  color: var(--primary-foreground);
+  font-weight: 600;
+  font-size: 1.25rem;
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+}
+
+.prose-content p {
+  margin-bottom: 1rem;
+}
+
+.prose-content ul {
+  list-style: disc;
+  padding-left: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.prose-content li {
+  margin-bottom: 0.25rem;
+  break-inside: avoid;
+}
+
+@media (min-width: 768px) {
+  .prose-content ul {
+    columns: 2;
+    column-gap: 2rem;
+  }
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-playfair), serif;
   text-transform: uppercase;
