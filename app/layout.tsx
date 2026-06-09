@@ -85,6 +85,9 @@ export default function RootLayout({
         `}</Script>
         <link rel="preconnect" href="https://www.google-analytics.com" />
         <link rel="preconnect" href="https://www.googletagmanager.com" />
+        {siteConfig.backgroundImage && (
+          <link rel="preload" href={siteConfig.backgroundImage} as="image" />
+        )}
         <GoogleAnalytics gaId="G-3F654PFG50" />
 <script dangerouslySetInnerHTML={{ __html: themeScript }} />
         {colorStyles && <style dangerouslySetInnerHTML={{ __html: colorStyles }} />}

@@ -49,6 +49,7 @@ export default async function ServiceDetailPage({
               src={service.image}
               alt={service.title}
               fill
+              priority
               className="object-cover"
             />
           </div>
