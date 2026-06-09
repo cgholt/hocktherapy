@@ -9,7 +9,7 @@ import BackgroundImage from "components/BackgroundImage";
 import { LocalBusinessSchema } from "components/StructuredData";
 import NotificationBanner from "components/NotificationBanner";
 import { getSiteConfig, getActiveColorPreset, validHexColor } from "lib/content";
-
+import Script from "next/script";
 const playfair = Playfair_Display({
   subsets: ["latin"],
   variable: "--font-playfair",
@@ -76,6 +76,13 @@ export default function RootLayout({
   return (
     <html lang="en" className={playfair.variable} suppressHydrationWarning>
       <head>
+        <Script src="https://www.googletagmanager.com/gtag/js?id=AW-18224312971" strategy="afterInteractive" />
+        <Script id="google-ads-init" strategy="afterInteractive">{`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'AW-18224312971');
+        `}</Script>
         <link rel="preconnect" href="https://www.google-analytics.com" />
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <GoogleAnalytics gaId="G-3F654PFG50" />
