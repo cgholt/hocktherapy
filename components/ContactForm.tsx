@@ -49,7 +49,14 @@ export default function ContactForm({ contactContent }: ContactFormProps) {
       headers: { "Content-Type": "application/json" },
     });
 
-    setStatus(res.ok ? "ok" : "err");
+    if (res.ok) {
+      setStatus("ok");
+      if (typeof window !== "undefined" && typeof (window as Window & { gtag_report_conversion?: () => void }).gtag_report_conversion === "function") {
+        (window as Window & { gtag_report_conversion?: () => void }).gtag_report_conversion();
+      }
+    } else {
+      setStatus("err");
+    }
   }
 
   const inputClass = "w-full rounded-lg border border-border bg-secondary px-4 py-3 text-secondary-foreground placeholder:text-tertiary focus:outline-none focus:ring-2 focus:ring-accent";
