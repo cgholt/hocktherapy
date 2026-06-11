@@ -51,8 +51,9 @@ export default function ContactForm({ contactContent }: ContactFormProps) {
 
     if (res.ok) {
       setStatus("ok");
-      if (typeof window !== "undefined" && typeof (window as Window & { gtag_report_conversion?: () => void }).gtag_report_conversion === "function") {
-        (window as Window & { gtag_report_conversion?: () => void }).gtag_report_conversion();
+      const w = window as Window & { gtag_report_conversion?: () => void };
+      if (typeof w.gtag_report_conversion === "function") {
+        w.gtag_report_conversion();
       }
     } else {
       setStatus("err");
