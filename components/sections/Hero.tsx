@@ -28,7 +28,10 @@ export default function Hero({
     >
       <div className="mx-auto max-w-7xl px-6 py-20 grid md:grid-cols-2 gap-10 items-center">
         <div>
-          <h1 className="text-4xl/tight md:text-5xl font-extrabold tracking-tight text-primary-foreground">
+          <h1
+            className="text-4xl/tight md:text-5xl font-extrabold tracking-tight text-primary-foreground"
+            style={{ textTransform: "none" }}
+          >
             {title}
           </h1>
           {subtitle && (
