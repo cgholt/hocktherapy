@@ -7,7 +7,7 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="mt-16 border-t-2 border-accent/40">
+    <footer className="mt-16 border-t-2 border-secondary">
       <div className="mx-auto max-w-7xl px-6 py-12">
         {/* Crisis Disclaimer + Badges Row */}
         <div className="mb-8 flex flex-col md:flex-row items-center gap-6">

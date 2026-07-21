@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
 import Hero from "components/sections/Hero";
+import Quote from "components/sections/Quote";
 import About from "components/sections/About";
 import Services from "components/sections/Services";
 import Testimonials from "components/sections/Testimonials";
@@ -37,6 +38,7 @@ export default function HomePage() {
         imagePosition={homepage.heroImagePosition}
       />
     ),
+    quote: <Quote text={homepage.quoteText} author={homepage.quoteAuthor} />,
     about: (
       <About
         title={homepage.aboutTitle}

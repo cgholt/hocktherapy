@@ -62,6 +62,8 @@ export type Homepage = {
   aboutImageCredit?: string;
   testimonialsTitle: string;
   faqsTitle: string;
+  quoteText?: string;
+  quoteAuthor?: string;
 };
 
 export type Service = {

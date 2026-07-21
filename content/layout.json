@@ -6,6 +6,11 @@
       "enabled": true
     },
     {
+      "id": "quote",
+      "label": "Quote",
+      "enabled": true
+    },
+    {
       "id": "about",
       "label": "About Me",
       "enabled": true

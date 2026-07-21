@@ -23,7 +23,7 @@ collections:
               name: heroCtaHref,
               label: Button Link,
               widget: string,
-              default: "/contact",
+              default: "/#contact",
             }
           - {
               name: heroImage,
@@ -41,6 +41,8 @@ collections:
               required: false,
               hint: "Controls which part of the image stays visible when cropped",
             }
+          - { name: quoteText, label: Quote Text, widget: text, required: false }
+          - { name: quoteAuthor, label: Quote Attribution, widget: string, required: false, hint: "e.g., 'Friedrich Nietzsche, On the Genealogy of Morality'" }
           - { name: aboutTitle, label: About Title, widget: string }
           - { name: aboutContent, label: About Content, widget: markdown }
           - {

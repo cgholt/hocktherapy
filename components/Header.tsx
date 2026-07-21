@@ -6,7 +6,7 @@ export default function Header() {
   const services = getServices().map((s) => ({ title: s.title, slug: s.slug }));
 
   return (
-    <header className="border-b border-border">
+    <header className="border-b border-secondary">
       <nav className="mx-auto max-w-7xl px-6 py-4">
         <HeaderNav siteConfig={siteConfig} services={services} />
       </nav>
