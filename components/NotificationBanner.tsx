@@ -12,7 +12,7 @@ export default function NotificationBanner() {
 
   return (
     <div
-      className={`${!banner.backgroundColor ? "bg-accent" : ""} ${!banner.textColor ? "text-white" : ""} text-center py-2 px-4 text-sm font-medium`}
+      className={`${!banner.backgroundColor ? "bg-secondary" : ""} ${!banner.textColor ? "text-slate-800" : ""} text-center py-2 px-4 text-sm font-medium`}
       style={style}
     >
       {banner.text}{" "}

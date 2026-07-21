@@ -1,6 +1,6 @@
 {
-  "heroCtaHref": "/contact",
-  "heroImage": "/images/jonjon-177.webp",
+  "heroCtaHref": "/#contact",
+  "heroImage": "/images/marcus-bust.webp",
   "heroCtaText": "BOOK A FREE CONSULTATION",
   "testimonialsTitle": "What clients say",
   "heroImagePosition": "top",
@@ -9,5 +9,7 @@
   "aboutImage": "/images/jonjon-119.webp",
   "heroSubtitle": "Grounded in existential psychotherapy and the wisdom of the philosophical tradition, we explore meaning, identity, relationships, and what it means to live well. Accepting new clients in-person in Houston and virtually across Texas. ",
   "faqsTitle": "Frequently asked questions",
-  "heroTitle": "A Different Kind of Therapy for Men."
+  "heroTitle": "A Different Kind of Therapy for Men.",
+  "quoteText": "We are unknown to ourselves, we men of knowledge, and with good reason. We have never sought ourselves.",
+  "quoteAuthor": "Friedrich Nietzsche, On the Genealogy of Morality"
 }

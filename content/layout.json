@@ -6,14 +6,14 @@
       "enabled": true
     },
     {
-      "id": "about",
-      "label": "About Me",
+      "id": "quote",
+      "label": "Quote",
       "enabled": true
     },
     {
-      "id": "services",
-      "label": "Services",
-      "enabled": false
+      "id": "about",
+      "label": "About Me",
+      "enabled": true
     },
     {
       "id": "testimonials",
@@ -28,6 +28,11 @@
     {
       "id": "faq",
       "label": "FAQ",
+      "enabled": true
+    },
+    {
+      "id": "contact",
+      "label": "Contact",
       "enabled": true
     }
   ]

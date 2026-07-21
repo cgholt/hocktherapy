@@ -60,7 +60,7 @@ export default function ContactForm({ contactContent }: ContactFormProps) {
     }
   }
 
-  const inputClass = "w-full rounded-lg border border-border bg-secondary px-4 py-3 text-secondary-foreground placeholder:text-tertiary focus:outline-none focus:ring-2 focus:ring-accent";
+  const inputClass = "w-full rounded-none border border-border bg-secondary px-4 py-3 text-secondary-foreground placeholder:text-slate-800 invalid:text-slate-800 focus:outline-none focus:ring-2 focus:ring-accent";
 
   return (
     <form onSubmit={onSubmit} className="mt-8 space-y-4">
@@ -117,7 +117,7 @@ export default function ContactForm({ contactContent }: ContactFormProps) {
       />
 
       {/* Safety notice with acknowledgment */}
-      <div className="rounded-lg border border-border bg-secondary/50 p-4">
+      <div className="rounded-none border border-border bg-secondary/50 p-4">
         <h3 className="text-sm font-semibold text-primary-foreground">
           {contactContent.safetyNoticeTitle}
         </h3>
@@ -150,7 +150,7 @@ export default function ContactForm({ contactContent }: ContactFormProps) {
       <button
         type="submit"
         disabled={status === "loading" || !acknowledged}
-        className="rounded-lg bg-accent px-6 py-3 text-accent-foreground font-medium hover:opacity-90 transition disabled:opacity-50 disabled:cursor-not-allowed"
+        className="rounded-none bg-accent px-6 py-3 text-accent-foreground font-medium hover:opacity-90 transition disabled:opacity-50 disabled:cursor-not-allowed"
       >
         {status === "loading" ? "Sending..." : "Send"}
       </button>

@@ -23,7 +23,7 @@ collections:
               name: heroCtaHref,
               label: Button Link,
               widget: string,
-              default: "/contact",
+              default: "/#contact",
             }
           - {
               name: heroImage,
@@ -41,6 +41,8 @@ collections:
               required: false,
               hint: "Controls which part of the image stays visible when cropped",
             }
+          - { name: quoteText, label: Quote Text, widget: text, required: false }
+          - { name: quoteAuthor, label: Quote Attribution, widget: string, required: false, hint: "e.g., 'Friedrich Nietzsche, On the Genealogy of Morality'" }
           - { name: aboutTitle, label: About Title, widget: string }
           - { name: aboutContent, label: About Content, widget: markdown }
           - {
@@ -56,33 +58,6 @@ collections:
               widget: string,
             }
           - { name: faqsTitle, label: FAQs Section Title, widget: string }
-
-  - name: services
-    label: Services
-    folder: content/services
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - { name: title, label: Title, widget: string }
-      - { name: slug, label: Slug, widget: string }
-      - { name: summary, label: Summary, widget: text }
-      - {
-          name: content,
-          label: Full Description,
-          widget: markdown,
-          required: false,
-        }
-      - { name: image, label: Image, widget: image, required: false }
-      - { name: imageCredit, label: Image Credit, widget: string, required: false, hint: "Attribution text shown on hover (e.g., 'Photo by Jane Doe')" }
-      - {
-          name: durationMinutes,
-          label: Duration (minutes),
-          widget: number,
-          required: false,
-        }
-      - { name: price, label: Price, widget: number, required: false }
-      - { name: order, label: Display Order, widget: number, default: 0 }
-      - { name: ctaText, label: Call to Action Text, widget: string, required: false, hint: "Button text at end of service page (e.g., 'Schedule a consultation with an existential psychotherapist')" }
 
   - name: testimonials
     label: Testimonials
@@ -128,11 +103,11 @@ collections:
     identifier_field: name
     fields:
       - { name: name, label: Preset Name, widget: string }
-      - { name: primary, label: Primary Color, widget: color, default: "#181619", hint: "Main background color (dark)" }
-      - { name: secondary, label: Secondary Color, widget: color, default: "#272a31", hint: "Secondary background color (slightly lighter)" }
-      - { name: accent, label: Accent Color, widget: color, default: "#a76b09", hint: "Accent color for buttons and highlights" }
-      - { name: surface, label: Surface Color, widget: color, default: "#f5f0eb", hint: "Light neutral color for cards and overlays", required: false }
-      - { name: deep, label: Deep Color, widget: color, default: "#3a3d45", hint: "Dark warm color for borders and deep backgrounds", required: false }
+      - { name: primary, label: Primary Color, widget: string, default: "#181619", hint: "Main background color (dark) — hex code" }
+      - { name: secondary, label: Secondary Color, widget: string, default: "#272a31", hint: "Secondary background color (slightly lighter) — hex code" }
+      - { name: accent, label: Accent Color, widget: string, default: "#a76b09", hint: "Accent color for buttons and highlights — hex code" }
+      - { name: surface, label: Surface Color, widget: string, default: "#f5f0eb", hint: "Light neutral color for cards and overlays — hex code", required: false }
+      - { name: deep, label: Deep Color, widget: string, default: "#3a3d45", hint: "Dark warm color for borders and deep backgrounds — hex code", required: false }
 
   - name: banner
     label: Notification Banner
@@ -144,9 +119,9 @@ collections:
           - { name: enabled, label: Enabled, widget: boolean, default: true, hint: "Show or hide the notification banner across the site" }
           - { name: text, label: Banner Text, widget: string, hint: "Main message displayed in the banner" }
           - { name: linkText, label: Link Text, widget: string, hint: "Clickable text at the end of the banner (e.g., 'Book today!')" }
-          - { name: linkHref, label: Link URL, widget: string, default: "/contact", hint: "Page the link directs to" }
-          - { name: backgroundColor, label: Background Color, widget: color, required: false, hint: "Custom background color. Leave empty to use the site accent color." }
-          - { name: textColor, label: Text Color, widget: color, required: false, hint: "Custom text color. Leave empty to default to white." }
+          - { name: linkHref, label: Link URL, widget: string, default: "/#contact", hint: "Section the link directs to (e.g., '/#contact')" }
+          - { name: backgroundColor, label: Background Color, widget: string, required: false, hint: "Custom background color — hex code. Leave empty to use the site accent color." }
+          - { name: textColor, label: Text Color, widget: string, required: false, hint: "Custom text color — hex code. Leave empty to default to white." }
 
   - name: site
     label: Site Settings
@@ -197,7 +172,7 @@ collections:
               - { name: enabled, label: Enabled, widget: boolean, default: true }
 
   - name: contact
-    label: Contact Page
+    label: Contact Section
     files:
       - name: contact-settings
         label: Contact Settings
@@ -205,28 +180,6 @@ collections:
         fields:
           - { name: safetyNoticeTitle, label: Safety Notice Title, widget: string }
           - { name: safetyNoticeContent, label: Safety Notice Content, widget: text, hint: "This notice will be shown above the contact form. Users must acknowledge it before submitting." }
-
-  - name: about
-    label: About Page
-    files:
-      - name: about-content
-        label: About Me
-        file: content/about.json
-        fields:
-          - { name: title, label: Page Title, widget: string }
-          - { name: image, label: Headshot, widget: image, required: false, hint: "Optional profile photo displayed at the top of the page" }
-          - { name: imageCredit, label: Image Credit, widget: string, required: false, hint: "Attribution text shown on hover (e.g., 'Photo by Jane Doe')" }
-          - { name: content, label: Content, widget: markdown }
-
-  - name: faqs-page
-    label: FAQs Page
-    files:
-      - name: faqs-page-settings
-        label: FAQs Page Settings
-        file: content/faqs-page.json
-        fields:
-          - { name: title, label: Page Title, widget: string }
-          - { name: description, label: Page Description, widget: text, required: false, hint: "Optional introductory text shown below the title" }
 
   - name: legal
     label: Legal Pages
