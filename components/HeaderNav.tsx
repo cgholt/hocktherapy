@@ -2,35 +2,28 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import ServicesDropdown from "components/ServicesDropdown";
 import type { SiteConfig } from "lib/content";
 
 export default function HeaderNav({
   siteConfig,
-  services,
 }: {
   siteConfig: SiteConfig;
-  services: { title: string; slug: string }[];
 }) {
   const [open, setOpen] = useState(false);
   const links = siteConfig.nav.filter((link) => link.enabled !== false);
 
   const renderLinks = (onNavigate?: () => void) =>
-    links.map((link) =>
-      link.href === "/services" ? (
-        <ServicesDropdown key={link.href} label={link.label} services={services} />
-      ) : (
-        <li key={link.href}>
-          <Link
-            href={link.href}
-            onClick={onNavigate}
-            className="nav-link text-sm md:text-base font-medium text-tertiary hover:text-accent transition"
-          >
-            {link.label}
-          </Link>
-        </li>
-      )
-    );
+    links.map((link) => (
+      <li key={link.href}>
+        <Link
+          href={link.href}
+          onClick={onNavigate}
+          className="nav-link text-sm md:text-base font-medium text-tertiary hover:text-accent transition"
+        >
+          {link.label}
+        </Link>
+      </li>
+    ));
 
   return (
     <div>

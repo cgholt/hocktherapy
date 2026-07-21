@@ -2,14 +2,12 @@ import { ReactNode } from "react";
 import Hero from "components/sections/Hero";
 import Quote from "components/sections/Quote";
 import About from "components/sections/About";
-import Services from "components/sections/Services";
 import Testimonials from "components/sections/Testimonials";
 import Endorsements from "components/sections/Endorsements";
 import FAQ from "components/sections/FAQ";
 import Contact from "components/sections/Contact";
 import {
   getHomepage,
-  getServices,
   getTestimonials,
   getEndorsements,
   getFAQs,
@@ -19,7 +17,6 @@ import {
 
 export default function HomePage() {
   const homepage = getHomepage();
-  const services = getServices();
   const testimonials = getTestimonials();
   const endorsements = getEndorsements();
   const faqs = getFAQs();
@@ -47,7 +44,6 @@ export default function HomePage() {
         imageCredit={homepage.aboutImageCredit}
       />
     ),
-    services: <Services items={services} />,
     testimonials: (
       <Testimonials title={homepage.testimonialsTitle} items={testimonials} />
     ),

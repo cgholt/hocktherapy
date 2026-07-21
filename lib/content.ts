@@ -66,19 +66,6 @@ export type Homepage = {
   quoteAuthor?: string;
 };
 
-export type Service = {
-  title: string;
-  slug: string;
-  summary: string;
-  content: string;
-  durationMinutes?: number;
-  price?: number;
-  image?: string | null;
-  imageCredit?: string;
-  order: number;
-  ctaText?: string;
-};
-
 export type Testimonial = {
   name: string;
   quote: string;
@@ -141,18 +128,6 @@ export type ContactContent = {
   safetyNoticeContent: string;
 };
 
-export type AboutPage = {
-  title: string;
-  content: string;
-  image?: string | null;
-  imageCredit?: string;
-};
-
-export type FAQsPage = {
-  title: string;
-  description: string;
-};
-
 export type Banner = {
   enabled: boolean;
   text: string;
@@ -186,29 +161,6 @@ export function getLayout(): Layout {
     const filePath = path.join(contentDir, "layout.json");
     return JSON.parse(fs.readFileSync(filePath, "utf-8"));
   });
-}
-
-export function getServices(): Service[] {
-  return cached("services", () => {
-    const dir = path.join(contentDir, "services");
-    if (!fs.existsSync(dir)) return [];
-    const files = fs.readdirSync(dir).filter((f) => f.endsWith(".md"));
-
-    return files
-      .map((file) => {
-        const raw = fs.readFileSync(path.join(dir, file), "utf-8");
-        const { data } = matter(raw);
-        return {
-          ...data,
-          content: safeMarkdown(data.content || ""),
-        } as Service;
-      })
-      .sort((a, b) => a.order - b.order);
-  });
-}
-
-export function getServiceBySlug(slug: string): Service | undefined {
-  return getServices().find((s) => s.slug === slug);
 }
 
 export function getTestimonials(): Testimonial[] {
@@ -328,24 +280,6 @@ export function getPrivacyPolicy(): PrivacyPolicy {
 export function getContactContent(): ContactContent {
   return cached("contact", () => {
     const filePath = path.join(contentDir, "contact.json");
-    return JSON.parse(fs.readFileSync(filePath, "utf-8"));
-  });
-}
-
-export function getAboutPage(): AboutPage {
-  return cached("about", () => {
-    const filePath = path.join(contentDir, "about.json");
-    const content = JSON.parse(fs.readFileSync(filePath, "utf-8"));
-    return {
-      ...content,
-      content: safeMarkdown(content.content),
-    };
-  });
-}
-
-export function getFAQsPage(): FAQsPage {
-  return cached("faqsPage", () => {
-    const filePath = path.join(contentDir, "faqs-page.json");
     return JSON.parse(fs.readFileSync(filePath, "utf-8"));
   });
 }

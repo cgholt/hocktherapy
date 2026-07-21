@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Nunito_Sans } from "next/font/google";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
 import Header from "components/Header";
@@ -9,16 +8,8 @@ import BackgroundImage from "components/BackgroundImage";
 import { LocalBusinessSchema } from "components/StructuredData";
 import NotificationBanner from "components/NotificationBanner";
 import { getSiteConfig, getActiveColorPreset, validHexColor } from "lib/content";
+import { playfair, nunitoSans } from "lib/fonts";
 import Script from "next/script";
-const playfair = Playfair_Display({
-  subsets: ["latin"],
-  variable: "--font-playfair",
-});
-
-const nunitoSans = Nunito_Sans({
-  subsets: ["latin"],
-  variable: "--font-nunito",
-});
 
 // Script to prevent flash of wrong theme (dark is default)
 const themeScript = `

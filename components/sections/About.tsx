@@ -17,7 +17,7 @@ export default function About({
         <div className="grid md:grid-cols-2 overflow-hidden">
           {image && (
             <div
-              className="relative min-h-[320px]"
+              className="relative aspect-[3/4] md:aspect-auto md:min-h-[320px]"
               {...(imageCredit ? { title: imageCredit } : {})}
             >
               <Image
@@ -25,7 +25,7 @@ export default function About({
                 alt={title || "About"}
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
-                className="object-cover"
+                className="object-cover object-top"
               />
             </div>
           )}

@@ -15,11 +15,6 @@
       "enabled": true
     },
     {
-      "label": "Services",
-      "href": "/services",
-      "enabled": false
-    },
-    {
       "label": "FAQs",
       "href": "/#faq",
       "enabled": true

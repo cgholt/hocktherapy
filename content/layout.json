@@ -16,11 +16,6 @@
       "enabled": true
     },
     {
-      "id": "services",
-      "label": "Services",
-      "enabled": false
-    },
-    {
       "id": "testimonials",
       "label": "Testimonials",
       "enabled": false

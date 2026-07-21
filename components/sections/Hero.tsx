@@ -57,7 +57,7 @@ export default function Hero({
         )}
         <div className="relative text-center space-y-16 md:order-1 md:text-left">
           <h1
-            className="text-4xl/tight md:text-5xl font-extrabold tracking-tight text-primary-foreground"
+            className="text-4xl/tighter md:text-6xl font-extrabold tracking-tighter text-primary-foreground"
             style={{ textTransform: "none" }}
           >{title}</h1>
           {subtitle && (
