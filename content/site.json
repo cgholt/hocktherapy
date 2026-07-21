@@ -11,7 +11,7 @@
     },
     {
       "label": "About Me",
-      "href": "/about",
+      "href": "/#about",
       "enabled": true
     },
     {
@@ -21,16 +21,16 @@
     },
     {
       "label": "FAQs",
-      "href": "/faqs",
+      "href": "/#faq",
       "enabled": true
     },
     {
       "label": "Contact",
-      "href": "/contact",
+      "href": "/#contact",
       "enabled": true
     }
   ],
-  "backgroundImage": "/images/36-image_riviere_henri_le_peintre_de_l_g.22392-36_2023182.webp",
+  "backgroundImage": "",
   "backgroundOverlay": 10,
   "activeColorPreset": "navy-and-driftwood"
 }

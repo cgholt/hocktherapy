@@ -8,25 +8,25 @@ export default function FAQSection({
   items: FAQ[];
 }) {
   return (
-    <section className="bg-primary">
+    <section >
       <div className="mx-auto max-w-3xl px-6 py-16">
         <h2 className="text-2xl font-semibold text-primary-foreground">
           {title || "Frequently asked questions"}
         </h2>
-        <div className="mt-1 h-1 w-16 bg-accent rounded" />
-        <div className="mt-8 space-y-3">
+        {/* <div className="mt-1 h-1 w-16 bg-accent rounded" /> */}
+        <div className="mt-8 divide-y divide-border">
           {items.map((f) => (
-            <details key={f.question} className="group bg-secondary rounded-lg border border-border px-5 py-4">
+            <details key={f.question} className="group rounded-none px-5 py-4 ">
               <summary className="flex cursor-pointer list-none items-center justify-between">
-                <span className="font-medium text-primary-foreground group-hover:text-accent transition">
+                <h3 className="text-lg font-semibold text-primary-foreground hover:opacity-90 transition">
                   {f.question}
-                </span>
+                </h3>
                 <span className="text-tertiary group-open:rotate-180 transition">
                   ▾
                 </span>
               </summary>
               <div
-                className="prose-content mt-3 text-tertiary [&_p]:mb-2"
+                className="mt-3 text-tertiary [&_p]:mb-2 pl-8"
                 dangerouslySetInnerHTML={{ __html: f.answer }}
               />
             </details>

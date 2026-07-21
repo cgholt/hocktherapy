@@ -16,7 +16,15 @@
       "Bash(npx sharp-cli:*)",
       "Bash(python3:*)",
       "Bash(echo:*)",
-      "Bash(chmod:*)"
+      "Bash(chmod:*)",
+      "Bash(npm --version)",
+      "WebFetch(domain:hocktherapy.com)",
+      "Bash(node *)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(npx vitest *)",
+      "Bash(pkill -f \"next dev --turbopack\")",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:3000 --max-time 3)"
     ]
   }
 }

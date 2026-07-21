@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Playfair_Display } from "next/font/google";
+import { Playfair_Display, Nunito_Sans } from "next/font/google";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
 import Header from "components/Header";
@@ -13,6 +13,11 @@ import Script from "next/script";
 const playfair = Playfair_Display({
   subsets: ["latin"],
   variable: "--font-playfair",
+});
+
+const nunitoSans = Nunito_Sans({
+  subsets: ["latin"],
+  variable: "--font-nunito",
 });
 
 // Script to prevent flash of wrong theme (dark is default)
@@ -30,8 +35,8 @@ const activeColorPreset = getActiveColorPreset();
 // Generate CSS variables from active color preset
 const colorStyles = activeColorPreset ? `
   :root {
-    --primary: ${validHexColor(activeColorPreset.primary, '#181619')};
-    --secondary: ${validHexColor(activeColorPreset.secondary, '#272a31')};
+    --primary: ${validHexColor(activeColorPreset.primary, '#ffffff')};
+    --secondary: ${validHexColor(activeColorPreset.secondary, '#967d62')};
     --accent: ${validHexColor(activeColorPreset.accent, '#a76b09')};
     --surface: ${validHexColor(activeColorPreset.surface, '#f5f0eb')};
     --deep: ${validHexColor(activeColorPreset.deep, '#3a3d45')};
@@ -74,7 +79,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={playfair.variable} suppressHydrationWarning>
+    <html lang="en" className={`${playfair.variable} ${nunitoSans.variable} scroll-smooth`} suppressHydrationWarning>
       <head>
         <Script src="https://www.googletagmanager.com/gtag/js?id=AW-18224312971" strategy="afterInteractive" />
         <Script id="google-ads-init" strategy="afterInteractive">{`

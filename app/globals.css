@@ -3,16 +3,16 @@
 :root {
   /* 60% - Primary (near black) */
   --primary: #181619;
-  --primary-foreground: #ffffff;
+  --primary-foreground: #f7f8da;
 
   /* 30% - Secondary (dark slate) */
   --secondary: #272a31;
-  --secondary-foreground: #ffffff;
+  --secondary-foreground: #f7f8da;
 
   /* 10% - Accent (golden amber) */
   --accent: #a76b09;
   --accent-foreground: #ffffff;
-  --tertiary: #faf7f6;
+  --tertiary: #f7f8da;
   --tertiary-foreground: #ffffff;
 
   /* Surface (light neutral) & Deep (dark warm) */
@@ -67,14 +67,14 @@
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
   --color-border: var(--border);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-nunito);
 }
 
 body {
-  background: var(--background);
+  background: radial-gradient(circle at center, var(--primary), #000000);
+  background-attachment: fixed;
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-nunito), Arial, Helvetica, sans-serif;
 }
 
 .prose-content a {

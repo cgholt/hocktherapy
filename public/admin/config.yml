@@ -128,11 +128,11 @@ collections:
     identifier_field: name
     fields:
       - { name: name, label: Preset Name, widget: string }
-      - { name: primary, label: Primary Color, widget: color, default: "#181619", hint: "Main background color (dark)" }
-      - { name: secondary, label: Secondary Color, widget: color, default: "#272a31", hint: "Secondary background color (slightly lighter)" }
-      - { name: accent, label: Accent Color, widget: color, default: "#a76b09", hint: "Accent color for buttons and highlights" }
-      - { name: surface, label: Surface Color, widget: color, default: "#f5f0eb", hint: "Light neutral color for cards and overlays", required: false }
-      - { name: deep, label: Deep Color, widget: color, default: "#3a3d45", hint: "Dark warm color for borders and deep backgrounds", required: false }
+      - { name: primary, label: Primary Color, widget: string, default: "#181619", hint: "Main background color (dark) — hex code" }
+      - { name: secondary, label: Secondary Color, widget: string, default: "#272a31", hint: "Secondary background color (slightly lighter) — hex code" }
+      - { name: accent, label: Accent Color, widget: string, default: "#a76b09", hint: "Accent color for buttons and highlights — hex code" }
+      - { name: surface, label: Surface Color, widget: string, default: "#f5f0eb", hint: "Light neutral color for cards and overlays — hex code", required: false }
+      - { name: deep, label: Deep Color, widget: string, default: "#3a3d45", hint: "Dark warm color for borders and deep backgrounds — hex code", required: false }
 
   - name: banner
     label: Notification Banner
@@ -145,8 +145,8 @@ collections:
           - { name: text, label: Banner Text, widget: string, hint: "Main message displayed in the banner" }
           - { name: linkText, label: Link Text, widget: string, hint: "Clickable text at the end of the banner (e.g., 'Book today!')" }
           - { name: linkHref, label: Link URL, widget: string, default: "/contact", hint: "Page the link directs to" }
-          - { name: backgroundColor, label: Background Color, widget: color, required: false, hint: "Custom background color. Leave empty to use the site accent color." }
-          - { name: textColor, label: Text Color, widget: color, required: false, hint: "Custom text color. Leave empty to default to white." }
+          - { name: backgroundColor, label: Background Color, widget: string, required: false, hint: "Custom background color — hex code. Leave empty to use the site accent color." }
+          - { name: textColor, label: Text Color, widget: string, required: false, hint: "Custom text color — hex code. Leave empty to default to white." }
 
   - name: site
     label: Site Settings
