@@ -2,15 +2,7 @@
   "name": "web",
   "version": "0.1.0",
   "private": true,
-  "description": "This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).",
-  "homepage": "https://github.com/cgholt/hocktherapy#readme",
-  "bugs": {
-    "url": "https://github.com/cgholt/hocktherapy/issues"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/cgholt/hocktherapy.git"
-  },
+  "description": "CMS-driven single-page site template for a solo practice (Next.js App Router).",
   "license": "ISC",
   "author": "",
   "type": "module",

@@ -43,6 +43,7 @@ collections:
             }
           - { name: quoteText, label: Quote Text, widget: text, required: false }
           - { name: quoteAuthor, label: Quote Attribution, widget: string, required: false, hint: "e.g., 'Friedrich Nietzsche, On the Genealogy of Morality'" }
+          - { name: quoteHighlight, label: Quote Highlight Word, widget: string, required: false, hint: "A single word in the quote to underline with the brush decoration. Leave blank for no highlight." }
           - { name: aboutTitle, label: About Title, widget: string }
           - { name: aboutContent, label: About Content, widget: markdown }
           - {
