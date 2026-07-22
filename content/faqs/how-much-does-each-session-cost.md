@@ -4,7 +4,7 @@ answer: >-
   Each 50-minute session for individuals is:
 
 
-  standard rate: $150.
+  standard rate: $150/session
 
 
   sustaining rate*: $175/session  
