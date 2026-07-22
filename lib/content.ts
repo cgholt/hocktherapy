@@ -64,6 +64,7 @@ export type Homepage = {
   faqsTitle: string;
   quoteText?: string;
   quoteAuthor?: string;
+  quoteHighlight?: string;
 };
 
 export type Testimonial = {

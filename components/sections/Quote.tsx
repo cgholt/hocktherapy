@@ -3,9 +3,11 @@ import { renderTextWithUnderline } from "lib/renderTextWithUnderline";
 export default function Quote({
   text,
   author,
+  highlight,
 }: {
   text?: string;
   author?: string;
+  highlight?: string;
 }) {
   if (!text) return null;
 
@@ -22,7 +24,7 @@ export default function Quote({
           <path d="M130,55 C130,35 120,20 102,14 C82,7 60,10 46,22 C38,29 34,38 38,45 C41,50 48,51 52,46 C55,42 53,37 49,36 C53,30 64,27 74,30 C90,35 100,48 102,62 C103,70 108,76 116,76 C124,76 130,68 130,58 Z" />
         </svg>
         <p className="mt-2 font-[family-name:var(--font-playfair)] text-xl md:text-3xl italic leading-snug text-primary">
-          {renderTextWithUnderline(text, "ourselves")}
+          {highlight ? renderTextWithUnderline(text, highlight) : text}
         </p>
         {author && (
           <p

@@ -1,39 +1,53 @@
 import { describe, it, expect } from "vitest";
-import { siteConfig } from "content/site";
-import { services } from "content/services";
-import { testimonials } from "content/testimonials";
-import { faqs } from "content/faqs";
+import {
+  getSiteConfig,
+  getHomepage,
+  getTestimonials,
+  getFAQs,
+  getEndorsements,
+  getColorPresets,
+} from "lib/content";
 
 describe("Content", () => {
   it("has site config with required fields", () => {
-    expect(siteConfig.siteName).toBeDefined();
-    expect(siteConfig.navigation.length).toBeGreaterThan(0);
+    const site = getSiteConfig();
+    expect(site.name).toBeDefined();
+    expect(site.nav.length).toBeGreaterThan(0);
   });
 
-  it("has services with required fields", () => {
-    expect(services.length).toBeGreaterThan(0);
-    services.forEach((service) => {
-      expect(service.id).toBeDefined();
-      expect(service.title).toBeDefined();
-      expect(service.slug).toBeDefined();
-    });
+  it("has homepage content", () => {
+    const homepage = getHomepage();
+    expect(homepage.heroTitle).toBeDefined();
+    expect(homepage.aboutContent).toBeDefined();
   });
 
   it("has testimonials with required fields", () => {
+    const testimonials = getTestimonials();
     expect(testimonials.length).toBeGreaterThan(0);
-    testimonials.forEach((testimonial) => {
-      expect(testimonial.id).toBeDefined();
-      expect(testimonial.name).toBeDefined();
-      expect(testimonial.quote).toBeDefined();
+    testimonials.forEach((t) => {
+      expect(t.name).toBeDefined();
+      expect(t.quote).toBeDefined();
     });
   });
 
   it("has FAQs with required fields", () => {
+    const faqs = getFAQs();
     expect(faqs.length).toBeGreaterThan(0);
     faqs.forEach((faq) => {
-      expect(faq.id).toBeDefined();
       expect(faq.question).toBeDefined();
       expect(faq.answer).toBeDefined();
     });
+  });
+
+  it("has endorsements with required fields", () => {
+    const endorsements = getEndorsements();
+    endorsements.forEach((e) => {
+      expect(e.name).toBeDefined();
+      expect(e.quote).toBeDefined();
+    });
+  });
+
+  it("has at least one color preset", () => {
+    expect(getColorPresets().length).toBeGreaterThan(0);
   });
 });

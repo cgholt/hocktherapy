@@ -35,7 +35,7 @@ export default function HomePage() {
         imagePosition={homepage.heroImagePosition}
       />
     ),
-    quote: <Quote text={homepage.quoteText} author={homepage.quoteAuthor} />,
+    quote: <Quote text={homepage.quoteText} author={homepage.quoteAuthor} highlight={homepage.quoteHighlight} />,
     about: (
       <About
         title={homepage.aboutTitle}

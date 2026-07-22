@@ -35,6 +35,12 @@ const colorStyles = activeColorPreset ? `
 ` : '';
 const siteUrl = process.env.SITE_URL || "https://example.com";
 
+// Analytics / ads IDs are per-site — configure via env so template clones
+// don't inherit another site's tracking. When unset, the tags render nothing.
+const gaMeasurementId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID; // GA4, e.g. "G-XXXXXXXXXX"
+const googleAdsId = process.env.NEXT_PUBLIC_GOOGLE_ADS_ID; // e.g. "AW-000000000"
+const googleAdsConversionLabel = process.env.NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_LABEL; // label after the slash
+
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
@@ -72,31 +78,35 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${playfair.variable} ${nunitoSans.variable} scroll-smooth`} suppressHydrationWarning>
       <head>
-        <Script src="https://www.googletagmanager.com/gtag/js?id=AW-18224312971" strategy="afterInteractive" />
-        <Script id="google-ads-init" strategy="afterInteractive">{`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'AW-18224312971');
-          function gtag_report_conversion(url) {
-            var callback = function () {
-              if (typeof(url) != 'undefined') {
-                window.location = url;
+        {googleAdsId && (
+          <>
+            <Script src={`https://www.googletagmanager.com/gtag/js?id=${googleAdsId}`} strategy="afterInteractive" />
+            <Script id="google-ads-init" strategy="afterInteractive">{`
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', '${googleAdsId}');
+              function gtag_report_conversion(url) {
+                var callback = function () {
+                  if (typeof(url) != 'undefined') {
+                    window.location = url;
+                  }
+                };
+                gtag('event', 'conversion', {
+                  ${googleAdsConversionLabel ? `'send_to': '${googleAdsId}/${googleAdsConversionLabel}',` : ""}
+                  'event_callback': callback
+                });
+                return false;
               }
-            };
-            gtag('event', 'conversion', {
-              'send_to': 'AW-18224312971/QKqdCMe4mb0cEIvlg_JD',
-              'event_callback': callback
-            });
-            return false;
-          }
-        `}</Script>
+            `}</Script>
+          </>
+        )}
         <link rel="preconnect" href="https://www.google-analytics.com" />
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         {siteConfig.backgroundImage && (
           <link rel="preload" href={siteConfig.backgroundImage} as="image" />
         )}
-        <GoogleAnalytics gaId="G-3F654PFG50" />
+        {gaMeasurementId && <GoogleAnalytics gaId={gaMeasurementId} />}
 <script dangerouslySetInnerHTML={{ __html: themeScript }} />
         {colorStyles && <style dangerouslySetInnerHTML={{ __html: colorStyles }} />}
         <LocalBusinessSchema
