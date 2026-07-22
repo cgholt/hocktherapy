@@ -1,5 +1,5 @@
 ---
-question: What kind of therapy do you offer?
+question: What sorts of issues do you work with?
 answer: >-
   I work with adults facing a range of life challenges. My approach is
   depth-oriented, existential, and tailored to each person’s unique situation.
