@@ -13,8 +13,15 @@ export default function HeaderNav({
   const links = siteConfig.nav.filter((link) => link.enabled !== false);
 
   const renderLinks = (onNavigate?: () => void) =>
-    links.map((link) => (
-      <li key={link.href}>
+    links.map((link, index) => (
+      <li
+        key={link.href}
+        className={
+          index > 0
+            ? "md:relative md:before:content-[''] md:before:absolute md:before:-left-3 md:before:top-1/2 md:before:-translate-y-1/2 md:before:h-6 md:before:w-px md:before:bg-border"
+            : undefined
+        }
+      >
         <Link
           href={link.href}
           onClick={onNavigate}
