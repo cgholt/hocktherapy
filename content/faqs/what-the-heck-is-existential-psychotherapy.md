@@ -1,5 +1,5 @@
 ---
-question: What the heck is "existential psychotherapy"?!
+question: What is existential psychotherapy?
 answer: >-
   Think of it as therapy for the bigger questions. Existential psychotherapy
   grew out of a rich philosophical tradition that stretches from Socrates
