@@ -10,6 +10,6 @@ answer: >-
   sustaining rate*: $175/session  
 
 
-  \*choosing the "sustaining rate" helps create space for those needing a reduced rate. Reduced rate availability limited.
+  \*the sustaining rate helps supports those that are approved for a reduced fee session cost.
 order: 4
 ---
